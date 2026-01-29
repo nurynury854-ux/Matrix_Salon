@@ -278,6 +278,16 @@ a {
   font-size: 0.85rem;
 }
 
+.team-section-label {
+  margin: 2rem 0 1.5rem;
+  text-align: center;
+}
+
+.team-section-label h3 {
+  color: var(--accent);
+  font-size: 1.3rem;
+}
+
 .team-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));

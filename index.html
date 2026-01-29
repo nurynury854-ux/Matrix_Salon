@@ -19,7 +19,7 @@
         <nav class="nav">
           <a href="#services">Үйлчилгээ</a>
           <a href="#team">Баг</a>
-          <a href="#gallery">Галерей</a>
+          <a href="#gallery">Зураг</a>
           <a href="#booking">Цаг авах</a>
           <a href="#contact">Холбоо барих</a>
         </nav>
@@ -114,26 +114,61 @@
             <h2>Манай баг</h2>
             <p>Мэргэжлийн үсчид болон колористууд таны хэв маягийг тодруулна.</p>
           </div>
+          
+          <div class="team-section-label">
+            <h3>Эмэгтэй үсчид</h3>
+          </div>
           <div class="team-grid">
             <div class="team-card">
               <div class="avatar">О</div>
               <h4>Оюунсүрэн</h4>
-              <p>Мастер стилист</p>
+              <p>Мастер</p>
             </div>
             <div class="team-card">
               <div class="avatar">Б</div>
               <h4>Бадамцэцэг</h4>
-              <p>Мастер колорист</p>
+              <p>Мастер</p>
             </div>
             <div class="team-card">
-              <div class="avatar">Т</div>
-              <h4>Тэргэл</h4>
-              <p>Эрэгтэй үсчин</p>
+              <div class="avatar">А</div>
+              <h4>Алтангэрэл</h4>
+              <p>1-р зэрэг</p>
+            </div>
+            <div class="team-card">
+              <div class="avatar">О</div>
+              <h4>Отгонжаргал</h4>
+              <p>1-р зэрэг</p>
             </div>
             <div class="team-card">
               <div class="avatar">У</div>
               <h4>Уянга</h4>
-              <p>Стилист</p>
+              <p>1-р зэрэг</p>
+            </div>
+          </div>
+
+          <div class="team-section-label">
+            <h3>Эрэгтэй үсчид</h3>
+          </div>
+          <div class="team-grid">
+            <div class="team-card">
+              <div class="avatar">Т</div>
+              <h4>Тэргэл</h4>
+              <p>1-р зэрэг</p>
+            </div>
+            <div class="team-card">
+              <div class="avatar">С</div>
+              <h4>Сүхээ</h4>
+              <p>1-р зэрэг</p>
+            </div>
+            <div class="team-card">
+              <div class="avatar">А</div>
+              <h4>Ананд</h4>
+              <p>Мастер</p>
+            </div>
+            <div class="team-card">
+              <div class="avatar">М</div>
+              <h4>Мухлай</h4>
+              <p>Мастер</p>
             </div>
           </div>
         </div>
@@ -142,7 +177,7 @@
       <section id="gallery" class="section alt-section">
         <div class="container">
           <div class="section-title">
-            <h2>Галерей</h2>
+</h2>
             <p>Орчин үеийн засалт, өнгө будалтын жишээ.</p>
           </div>
           <div class="gallery-grid">
@@ -233,15 +268,14 @@
         <div class="container contact-grid">
           <div>
             <h2>Холбоо барих</h2>
-            <p>Улаанбаатар хот, БЗД, 26-р хороо, Green Avenue 120</p>
-            <p>Утас: +976 7700 2233</p>
-            <p>И-мэйл: hello@matrixecosalon.mn</p>
+            <p>Яармагийн Номин Хайпермаркетын баруун талд</p>
+            <p>Утас: +976 7741 7777</p>
+            <p>И-мэйл: erkhembaataroyunsuren@gmail.com</p>
             <p>Ажлын цаг: Даваа-Ням 09:00–20:00</p>
           </div>
           <div class="contact-card">
             <h3>Сошиал хаяг</h3>
-            <p>Instagram: @matrixecosalon</p>
-            <p>Facebook: Matrix Eco Salon</p>
+            <p><a href="https://www.facebook.com/profile.php?id=100067872726164" target="_blank">Facebook: Matrix Eco Salon</a></p>
             <p>Хаяг олж харах: Google Maps</p>
             <a class="primary-btn" href="#booking">Цаг авах</a>
           </div>
@@ -254,6 +288,78 @@
         <p>© 2026 Matrix Eco Salon. Бүх эрх хуулиар хамгаалагдсан.</p>
       </div>
     </footer>
+
+    <!-- Matrix Chatbot Widget -->
+    <button id="matrix-chat-toggle"
+            aria-label="Open Matrix Chat"
+            style="position: fixed; bottom: 20px; right: 20px; z-index: 99999; 
+                   width: 80px; height: 80px; border-radius: 50%; 
+                   background: #000000;
+                   border: 2px solid #333; 
+                   box-shadow: 0 4px 12px rgba(0,0,0,0.5); 
+                   cursor: pointer; overflow: hidden; padding: 0; 
+                   transition: all 0.3s ease; display: flex; align-items: center; justify-content: center;">
+      
+      <img src="logo.png" 
+           alt="Matrix Logo" 
+           style="width: 100%; height: 100%; object-fit: cover;">
+    </button>
+
+    <div id="matrix-chatbot-container"
+         style="display: none; position: fixed; bottom: 100px; right: 20px; 
+                width: 400px; height: 600px; max-height: 80vh; 
+                background: #1F1F1F; border-radius: 16px; 
+                box-shadow: 0 5px 40px rgba(0,0,0,0.6); z-index: 99999; 
+                overflow: hidden; border: 1px solid #333;">
+                
+      <iframe src="https://matrix-chatbot-seven.vercel.app/"
+              width="100%" height="100%" frameborder="0"
+              style="border-radius: 16px;"
+              title="Matrix Salon Chatbot"></iframe>
+    </div>
+
+    <style>
+      #matrix-chat-toggle:hover {
+        transform: scale(1.1);
+        box-shadow: 0 0 15px rgba(255, 0, 0, 0.6);
+        border-color: #FF0000;
+      }
+      
+      @media (max-width: 480px) {
+        #matrix-chatbot-container {
+          width: calc(100% - 32px) !important;
+          height: 70vh !important;
+          bottom: 100px !important;
+          right: 16px !important;
+        }
+      }
+    </style>
+
+    <script>
+      (function() {
+        const container = document.getElementById('matrix-chatbot-container');
+        const btn = document.getElementById('matrix-chat-toggle');
+
+        if (!container || !btn) {
+          console.error('Matrix chatbot elements not found');
+          return;
+        }
+
+        btn.addEventListener('click', function() {
+          const isHidden = container.style.display === 'none' || container.style.display === '';
+          
+          if (isHidden) {
+            container.style.display = 'block';
+            btn.style.transform = 'rotate(360deg)';
+          } else {
+            container.style.display = 'none';
+            btn.style.transform = 'rotate(0deg)';
+          }
+          
+          btn.setAttribute('aria-expanded', isHidden ? 'true' : 'false');
+        });
+      })();
+    </script>
 
     <script src="script.js"></script>
   </body>
