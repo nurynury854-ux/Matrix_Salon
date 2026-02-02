@@ -274,3 +274,45 @@ loadPricing();
 renderDayStrip(new Date());
 renderTimeSlots();
 initDateInput();
+
+const teamModal = document.getElementById("team-modal");
+const teamModalName = document.getElementById("team-modal-name");
+const teamModalRole = document.getElementById("team-modal-role");
+const teamModalSkill = document.getElementById("team-modal-skill");
+const teamModalEducation = document.getElementById("team-modal-education");
+const teamModalQualification = document.getElementById("team-modal-qualification");
+const teamButtons = document.querySelectorAll(".team-more-btn");
+
+function openTeamModal(button) {
+  if (!teamModal || !button) return;
+  teamModalName.textContent = button.dataset.name || "";
+  teamModalRole.textContent = button.dataset.role || "";
+  teamModalSkill.textContent = button.dataset.skill || "";
+  teamModalEducation.textContent = button.dataset.education || "";
+  teamModalQualification.textContent = button.dataset.qualification || "";
+  teamModal.classList.add("is-open");
+  teamModal.setAttribute("aria-hidden", "false");
+}
+
+function closeTeamModal() {
+  if (!teamModal) return;
+  teamModal.classList.remove("is-open");
+  teamModal.setAttribute("aria-hidden", "true");
+}
+
+teamButtons.forEach((button) => {
+  button.addEventListener("click", () => openTeamModal(button));
+});
+
+teamModal?.addEventListener("click", (event) => {
+  const target = event.target;
+  if (target?.matches("[data-team-modal-close]")) {
+    closeTeamModal();
+  }
+});
+
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape" && teamModal?.classList.contains("is-open")) {
+    closeTeamModal();
+  }
+});

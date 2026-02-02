@@ -300,6 +300,25 @@ a {
   padding: 1.6rem;
   text-align: center;
   border: 1px solid rgba(100, 211, 154, 0.12);
+  display: grid;
+  gap: 0.6rem;
+  justify-items: center;
+}
+
+.team-more-btn {
+  border: 1px solid rgba(100, 211, 154, 0.35);
+  color: var(--accent);
+  background: transparent;
+  padding: 0.45rem 1.1rem;
+  border-radius: 999px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.team-more-btn:hover {
+  background: rgba(100, 211, 154, 0.12);
+  transform: translateY(-1px);
 }
 
 .avatar {
@@ -475,6 +494,70 @@ a {
   text-align: center;
   color: var(--muted);
   border-top: 1px solid rgba(100, 211, 154, 0.2);
+}
+
+.team-modal {
+  position: fixed;
+  inset: 0;
+  display: none;
+  z-index: 9999;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+}
+
+.team-modal.is-open {
+  display: flex;
+}
+
+.team-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(5, 9, 8, 0.7);
+  backdrop-filter: blur(6px);
+}
+
+.team-modal-content {
+  position: relative;
+  width: min(520px, 92vw);
+  background: var(--surface-light);
+  border-radius: 20px;
+  border: 1px solid rgba(100, 211, 154, 0.2);
+  padding: 2rem;
+  z-index: 1;
+  display: grid;
+  gap: 0.8rem;
+}
+
+.team-modal-role {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.team-modal-list {
+  list-style: none;
+  display: grid;
+  gap: 0.5rem;
+  color: var(--muted);
+}
+
+.team-modal-note {
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.team-modal-close {
+  position: absolute;
+  top: 14px;
+  right: 16px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid rgba(100, 211, 154, 0.25);
+  background: rgba(100, 211, 154, 0.1);
+  color: var(--text);
+  font-size: 1.4rem;
+  cursor: pointer;
 }
 
 @media (max-width: 900px) {
