@@ -316,3 +316,27 @@ document.addEventListener("keydown", (event) => {
     closeTeamModal();
   }
 });
+
+// Video toggle support for stylist profiles
+document.querySelectorAll('.video-toggle').forEach((btn) => {
+  const videoSrc = btn.dataset.video?.trim();
+  const videoEl = btn.parentElement?.querySelector('.profile-video');
+  if (!videoSrc) {
+    // hide button if no video source configured yet
+    btn.style.display = 'none';
+    return;
+  }
+
+  btn.addEventListener('click', () => {
+    if (!videoEl) return;
+    if (videoEl.style.display === 'none' || videoEl.style.display === '') {
+      if (!videoEl.src) videoEl.src = videoSrc;
+      videoEl.style.display = 'block';
+      btn.textContent = 'Хаах';
+    } else {
+      videoEl.pause();
+      videoEl.style.display = 'none';
+      btn.textContent = 'Видео';
+    }
+  });
+});
