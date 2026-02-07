@@ -206,6 +206,44 @@ a {
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
 }
 
+.pricing-category-header {
+  grid-column: 1 / -1;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--accent);
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+  padding-bottom: 0.8rem;
+  border-bottom: 2px solid rgba(100, 211, 154, 0.3);
+}
+
+.pricing-category-header:first-of-type {
+  margin-top: 0;
+}
+
+.pricing-subcategory-header {
+  grid-column: 1 / -1;
+  margin-top: 1.2rem;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  background: rgba(100, 211, 154, 0.05);
+  border-left: 4px solid var(--accent);
+  border-radius: 8px;
+}
+
+.pricing-subcategory-header h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--accent);
+  margin-bottom: 0.3rem;
+}
+
+.pricing-subcategory-header p {
+  font-size: 0.9rem;
+  color: var(--muted);
+  margin: 0;
+}
+
 .price-card {
   background: var(--surface);
   border: 1px solid rgba(100, 211, 154, 0.15);
@@ -213,6 +251,85 @@ a {
   padding: 1.4rem;
   display: grid;
   gap: 0.8rem;
+}
+
+.price-card.price-group {
+  padding: 0;
+  overflow: hidden;
+}
+
+.group-toggle {
+  all: unset;
+  cursor: pointer;
+  padding: 1.4rem;
+  display: grid;
+  gap: 0.8rem;
+  width: 100%;
+  text-align: left;
+  transition: background-color 0.2s ease;
+}
+
+.group-toggle:hover {
+  background-color: rgba(100, 211, 154, 0.08);
+}
+
+.group-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.group-header h4 {
+  font-size: 1.05rem;
+  margin: 0;
+}
+
+.toggle-icon {
+  font-size: 0.8rem;
+  color: var(--accent);
+  transition: transform 0.3s ease;
+  flex-shrink: 0;
+}
+
+.price-variants {
+  display: grid;
+  gap: 0.8rem;
+  padding: 0 1.4rem 1.4rem;
+  max-height: 1000px;
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.price-variants.hidden {
+  max-height: 0;
+  padding: 0 1.4rem;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.price-variant {
+  background: rgba(100, 211, 154, 0.08);
+  border-left: 3px solid var(--accent);
+  border-radius: 8px;
+  padding: 0.9rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.variant-name {
+  font-size: 0.95rem;
+  color: var(--text);
+  flex: 1;
+}
+
+.price-variant .price {
+  font-weight: 700;
+  color: var(--accent);
+  font-size: 0.95rem;
+  white-space: nowrap;
 }
 
 .price-card h4 {

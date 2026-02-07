@@ -1,125 +1,4 @@
-const embeddedPricing = [
-  {
-    service: "CICA нөхөн сэргээх эмчилгээ",
-    min: 154000,
-    max: 198000,
-  },
-  {
-    service: "CMC тэжээл",
-    min: 132000,
-    max: 132000,
-  },
-  {
-    service: "Афра хими",
-    min: 319000,
-    max: 352000,
-  },
-  {
-    service: "будаг",
-    min: 88000,
-    max: 200000,
-  },
-  {
-    service: "будаг/уг",
-    min: 135000,
-    max: 135000,
-  },
-  {
-    service: "гоёл/зас",
-    min: 71500,
-    max: 99000,
-  },
-  {
-    service: "о/кол/сор",
-    min: 380000,
-    max: 460000,
-  },
-  {
-    service: "омбре",
-    min: 500000,
-    max: 640000,
-  },
-  {
-    service: "сахал",
-    min: 16500,
-    max: 16500,
-  },
-  {
-    service: "сор",
-    min: 120000,
-    max: 190000,
-  },
-  {
-    service: "т/ тос",
-    min: 49500,
-    max: 49500,
-  },
-  {
-    service: "том хүн",
-    min: 49500,
-    max: 88000,
-  },
-  {
-    service: "тэжээл",
-    min: 44000,
-    max: 88000,
-  },
-  {
-    service: "угаалт",
-    min: 22000,
-    max: 22000,
-  },
-  {
-    service: "х/ цэвэрлэгээ",
-    min: 88000,
-    max: 88000,
-  },
-  {
-    service: "хими арчилт",
-    min: 154000,
-    max: 154000,
-  },
-  {
-    service: "хими/sika",
-    min: 220000,
-    max: 255000,
-  },
-  {
-    service: "хурим",
-    min: 154000,
-    max: 198000,
-  },
-  {
-    service: "хусалт",
-    min: 22000,
-    max: 22000,
-  },
-  {
-    service: "хэлбэрт",
-    min: 33000,
-    max: 50000,
-  },
-  {
-    service: "хүүхэд",
-    min: 44000,
-    max: 283508,
-  },
-  {
-    service: "чолк/т",
-    min: 33000,
-    max: 33000,
-  },
-  {
-    service: "шулуун/хими",
-    min: 352000,
-    max: 396000,
-  },
-  {
-    service: "эр/ хими",
-    min: 132000,
-    max: 154000,
-  },
-];
+const embeddedPricing = [];
 
 const pricingGrid = document.getElementById("pricing-grid");
 const serviceSelect = document.getElementById("service-select");
@@ -148,31 +27,230 @@ const timeOptions = [
 ];
 
 function formatRange(min, max) {
+  if (min === undefined || min === null) {
+    // Single price mode
+    return `${formatter.format(max)} ₮`;
+  }
   if (min === max) {
     return `${formatter.format(min)} ₮`;
   }
   return `${formatter.format(min)} – ${formatter.format(max)} ₮`;
 }
 
-function renderPricing(pricing) {
+function formatPrice(price) {
+  return `${formatter.format(price)} ₮`;
+}
+
+function renderPricing(pricingData) {
+  if (!pricingGrid) return;
   pricingGrid.innerHTML = "";
-  serviceSelect.innerHTML = '<option value="">Үйлчилгээ сонгох</option>';
+  
+  if (serviceSelect) {
+    serviceSelect.innerHTML = '<option value="">Үйлчилгээ сонгох</option>';
+  }
 
-  pricing.forEach((item) => {
-    const card = document.createElement("div");
-    card.className = "price-card";
-    card.innerHTML = `
-      <h4>${item.service}</h4>
-      <div class="price">${formatRange(item.min, item.max)}</div>
-      <div class="muted">Үнийн хүрээ</div>
-    `;
-    pricingGrid.appendChild(card);
+  // Render each category
+  Object.values(pricingData).forEach((category) => {
+    // Category header
+    const categoryHeader = document.createElement("div");
+    categoryHeader.className = "pricing-category-header";
+    categoryHeader.textContent = category.category;
+    pricingGrid.appendChild(categoryHeader);
 
-    const option = document.createElement("option");
-    option.value = item.service;
-    option.textContent = `${item.service} (${formatRange(item.min, item.max)})`;
-    serviceSelect.appendChild(option);
+    // Check if category has subcategories (new structure)
+    if (category.subcategories) {
+      category.subcategories.forEach((subcategory) => {
+        // Subcategory header
+        const subcategoryHeader = document.createElement("div");
+        subcategoryHeader.className = "pricing-subcategory-header";
+        subcategoryHeader.innerHTML = `
+          <h3>${subcategory.name}</h3>
+        `;
+        pricingGrid.appendChild(subcategoryHeader);
+
+        // Render services in subcategory
+        subcategory.services.forEach((service) => {
+          if (service.variants) {
+            // Service with variants - collapsible
+            const groupId = `group-${service.name.replace(/\s+/g, "-")}`;
+            const groupCard = document.createElement("div");
+            groupCard.className = "price-card price-group";
+
+            // Calculate min/max from variants (or just use first price if single price)
+            let minPrice = Infinity;
+            let maxPrice = 0;
+            service.variants.forEach((variant) => {
+              if (variant.price !== undefined) {
+                minPrice = Math.min(minPrice, variant.price);
+                maxPrice = Math.max(maxPrice, variant.price);
+              } else {
+                minPrice = Math.min(minPrice, variant.min);
+                maxPrice = Math.max(maxPrice, variant.max);
+              }
+            });
+
+            const priceDisplay = minPrice === maxPrice ? formatPrice(maxPrice) : formatRange(minPrice, maxPrice);
+
+            groupCard.innerHTML = `
+              <button class="group-toggle" data-group="${groupId}" type="button">
+                <div class="group-header">
+                  <h4>${service.name}</h4>
+                  <span class="toggle-icon">▼</span>
+                </div>
+                <div class="price">${priceDisplay}</div>
+                <div class="muted">${service.variants.length} сонголт</div>
+              </button>
+            `;
+            pricingGrid.appendChild(groupCard);
+
+            // Variants container
+            const variantsContainer = document.createElement("div");
+            variantsContainer.id = groupId;
+            variantsContainer.className = "price-variants hidden";
+
+            service.variants.forEach((variant) => {
+              const variantCard = document.createElement("div");
+              variantCard.className = "price-variant";
+              const priceText = variant.price !== undefined ? formatPrice(variant.price) : formatRange(variant.min, variant.max);
+              variantCard.innerHTML = `
+                <div class="variant-name">${variant.type}</div>
+                <div class="price">${priceText}</div>
+              `;
+              variantsContainer.appendChild(variantCard);
+
+              // Add to service select
+              if (serviceSelect) {
+                const option = document.createElement("option");
+                option.value = `${service.name} - ${variant.type}`;
+                option.textContent = `${service.name} (${variant.type}) - ${priceText}`;
+                serviceSelect.appendChild(option);
+              }
+            });
+
+            pricingGrid.appendChild(variantsContainer);
+          } else {
+            // Single service without variants
+            const card = document.createElement("div");
+            card.className = "price-card";
+            const priceText = service.price !== undefined ? formatPrice(service.price) : formatRange(service.min, service.max);
+            card.innerHTML = `
+              <h4>${service.name}</h4>
+              <div class="price">${priceText}</div>
+              <div class="muted">Үнэ</div>
+            `;
+            pricingGrid.appendChild(card);
+
+            // Add to service select
+            if (serviceSelect) {
+              const option = document.createElement("option");
+              option.value = service.name;
+              option.textContent = `${service.name} - ${priceText}`;
+              serviceSelect.appendChild(option);
+            }
+          }
+        });
+      });
+    } else {
+      // Old structure with services or variants
+      category.services.forEach((service) => {
+        if (service.variants) {
+          // Service with variants - collapsible
+          const groupId = `group-${service.name.replace(/\s+/g, "-")}`;
+          const groupCard = document.createElement("div");
+          groupCard.className = "price-card price-group";
+
+          // Calculate min/max from variants
+          let minPrice = Infinity;
+          let maxPrice = 0;
+          service.variants.forEach((variant) => {
+            if (variant.price !== undefined) {
+              minPrice = Math.min(minPrice, variant.price);
+              maxPrice = Math.max(maxPrice, variant.price);
+            } else {
+              minPrice = Math.min(minPrice, variant.min);
+              maxPrice = Math.max(maxPrice, variant.max);
+            }
+          });
+
+          const priceDisplay = minPrice === maxPrice ? formatPrice(maxPrice) : formatRange(minPrice, maxPrice);
+
+          groupCard.innerHTML = `
+            <button class="group-toggle" data-group="${groupId}" type="button">
+              <div class="group-header">
+                <h4>${service.name}</h4>
+                <span class="toggle-icon">▼</span>
+              </div>
+              <div class="price">${priceDisplay}</div>
+              <div class="muted">${service.variants.length} сонголт</div>
+            </button>
+          `;
+          pricingGrid.appendChild(groupCard);
+
+          // Variants container
+          const variantsContainer = document.createElement("div");
+          variantsContainer.id = groupId;
+          variantsContainer.className = "price-variants hidden";
+
+          service.variants.forEach((variant) => {
+            const variantCard = document.createElement("div");
+            variantCard.className = "price-variant";
+            const priceText = variant.price !== undefined ? formatPrice(variant.price) : formatRange(variant.min, variant.max);
+            variantCard.innerHTML = `
+              <div class="variant-name">${variant.type}</div>
+              <div class="price">${priceText}</div>
+            `;
+            variantsContainer.appendChild(variantCard);
+
+            // Add to service select
+            if (serviceSelect) {
+              const option = document.createElement("option");
+              option.value = `${service.name} - ${variant.type}`;
+              option.textContent = `${service.name} (${variant.type}) - ${priceText}`;
+              serviceSelect.appendChild(option);
+            }
+          });
+
+          pricingGrid.appendChild(variantsContainer);
+        } else {
+          // Single service without variants
+          const card = document.createElement("div");
+          card.className = "price-card";
+          const priceText = service.price !== undefined ? formatPrice(service.price) : formatRange(service.min, service.max);
+          card.innerHTML = `
+            <h4>${service.name}</h4>
+            <div class="price">${priceText}</div>
+            <div class="muted">Үнэ</div>
+          `;
+          pricingGrid.appendChild(card);
+
+          // Add to service select
+          if (serviceSelect) {
+            const option = document.createElement("option");
+            option.value = service.name;
+            option.textContent = `${service.name} - ${priceText}`;
+            serviceSelect.appendChild(option);
+          }
+        }
+      });
+    }
   });
+
+  // Attach toggle listeners
+  document.querySelectorAll(".group-toggle").forEach((btn) => {
+    btn.addEventListener("click", toggleGroup);
+  });
+}
+
+function toggleGroup(event) {
+  const button = event.currentTarget;
+  const groupId = button.dataset.group;
+  const container = document.getElementById(groupId);
+  const icon = button.querySelector(".toggle-icon");
+
+  if (container) {
+    container.classList.toggle("hidden");
+    icon.textContent = container.classList.contains("hidden") ? "▼" : "▲";
+  }
 }
 
 async function loadPricing() {
@@ -182,7 +260,7 @@ async function loadPricing() {
     const data = await response.json();
     renderPricing(data);
   } catch (error) {
-    renderPricing(embeddedPricing);
+    console.error("Error loading pricing:", error);
   }
 }
 
