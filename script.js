@@ -127,7 +127,7 @@ function renderPricing(pricingData) {
               }
             });
 
-            pricingGrid.appendChild(variantsContainer);
+            groupCard.appendChild(variantsContainer);
           } else {
             // Single service without variants
             const card = document.createElement("div");
@@ -210,7 +210,7 @@ function renderPricing(pricingData) {
             }
           });
 
-          pricingGrid.appendChild(variantsContainer);
+          groupCard.appendChild(variantsContainer);
         } else {
           // Single service without variants
           const card = document.createElement("div");
@@ -262,6 +262,41 @@ async function loadPricing() {
   } catch (error) {
     console.error("Error loading pricing:", error);
   }
+}
+
+async function loadProducts() {
+  try {
+    const response = await fetch("data/products.json");
+    if (!response.ok) throw new Error("Failed to load products");
+    const data = await response.json();
+    renderProducts(data);
+  } catch (error) {
+    console.error("Error loading products:", error);
+  }
+}
+
+function renderProducts(data) {
+  const productsGrid = document.getElementById("products-grid");
+  if (!productsGrid) return;
+  productsGrid.innerHTML = "";
+
+  data.products.forEach((product) => {
+    const productCard = document.createElement("div");
+    productCard.className = "product-card";
+    const priceDisplay = formatter.format(product.price);
+    productCard.innerHTML = `
+      <div class="product-image">
+        <img src="${product.image}" alt="${product.name}" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22200%22%3E%3Crect fill=%22%23161f1a%22 width=%22200%22 height=%22200%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-size=%2214%22 fill=%22%2364d39a%22 text-anchor=%22middle%22 dy=%22.3em%22%3EAmos Professional%3C/text%3E%3C/svg%3E'\" />
+      </div>
+      <div class="product-info">
+        <div class="product-category">${product.category}</div>
+        <h4>${product.name}</h4>
+        <div class="product-price">${priceDisplay} ₮</div>
+      </div>
+      <a href="${product.url}" target="_blank" class="ghost-btn product-link">Дэлгэрэнгүй</a>
+    `;
+    productsGrid.appendChild(productCard);
+  });
 }
 
 function getDayLabel(date) {
@@ -349,6 +384,7 @@ bookingForm?.addEventListener("submit", (event) => {
 });
 
 loadPricing();
+loadProducts();
 renderDayStrip(new Date());
 renderTimeSlots();
 initDateInput();

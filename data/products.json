@@ -1,0 +1,86 @@
+{
+  "products": [
+    {
+      "id": 10639,
+      "name": "SCALP BRUSH Хуйханд зориулсан массажны сам",
+      "price": 34900,
+      "category": "Багаж хэрэгсэл",
+      "url": "https://amosprofessional.mn/products/582815",
+      "image": "Products/SCALP BRUSH - Amos Professional.jpg"
+    },
+    {
+      "id": 1806,
+      "name": "01 HARD SPRITZ Цацдаг хэв баригч спрей",
+      "price": 38000,
+      "category": "01 Pro basic style",
+      "url": "https://amosprofessional.mn/products/580459",
+      "image": "Products/01 HARD SPRITZ - Amos Professional.webp"
+    },
+    {
+      "id": 9106,
+      "name": "02 PURE SMART Тослогтдог хаганд зориулсан багц",
+      "price": 157000,
+      "category": "02 Scalp хуйхны эрүүл мэнд",
+      "url": "https://amosprofessional.mn/products/578349",
+      "image": "Products/02 PURE SMART Тослогтдог, жижиг бужигнасан хаганд зориулсан багц - Amos Professional.jpg"
+    },
+    {
+      "id": 9104,
+      "name": "02 THE GREEN TEA Эмзэг мэдрэмтгий хуйханд зориулсан багц",
+      "price": 329000,
+      "category": "02 Scalp үс уналтын эсрэг",
+      "url": "https://amosprofessional.mn/products/578327",
+      "image": "Products/02 THE GREEN TEA Эмзэг, мэдрэмтгий хуйханд зориулсан багц - Amos Professional.jpg"
+    },
+    {
+      "id": 9109,
+      "name": "03 SILKY RADIANCE Будагтай үс арчилгааны багц",
+      "price": 243000,
+      "category": "03 Будагтай үс арчилгаа",
+      "url": "https://amosprofessional.mn/products/578396",
+      "image": "Products/03 SILKY RADIANCE Будагтай үс арчилгааны багц - Amos Profesional.jpg"
+    },
+    {
+      "id": 1631,
+      "name": "04 Curling Fixer Долгион дэмжигч цацдаг хэв баригч",
+      "price": 54000,
+      "category": "04 Curling styling",
+      "url": "https://amosprofessional.mn/products/580124",
+      "image": "Products/04 Curling Fixer Долгион дэмжигч цацдаг хэв баригч - Amos Professional.webp"
+    },
+    {
+      "id": 9108,
+      "name": "05 REPAIR CMC Химитэй гэмтэлтэй үсний багц",
+      "price": 300000,
+      "category": "05 Гэмтэлтэй үс арчилгаа",
+      "url": "https://amosprofessional.mn/products/578361",
+      "image": "Products/05 REPAIR CMC Химитэй, гэмтэлтэй үсний багц - Amos Profesional.jpg"
+    },
+    {
+      "id": 9111,
+      "name": "06 RENEW CAMELLIA Тослог хуйханд зориулсан хөгшрөлтийн эсрэг багц",
+      "price": 309700,
+      "category": "06 Хуйхны хөгшрөлтийн эсрэг арчилгаа",
+      "url": "https://amosprofessional.mn/products/579420",
+      "image": "Products/06 RENEW CAMELLIA Тослог хуйханд зориулсан хуйхны хөгшрөлтийн эсрэг багц - Amos Profesional.jpg"
+    },
+    {
+      "id": 10762,
+      "name": "Үсний хар сэнс",
+      "price": 250000,
+      "category": "Багаж хэрэгсэл",
+      "url": "https://amosprofessional.mn/products/586972",
+      "image": "Products/Үсний цагаан сэнс - Amos Professional.webp"
+    },
+    {
+      "id": 1382,
+      "name": "01 Softening conditioner Цацдаг ангижруулагч",
+      "price": 46000,
+      "category": "01 Pro basic style",
+      "url": "https://amosprofessional.mn/products/579443",
+      "image": "Products/01 Softening conditioner Цацдаг ангижруулагч - Amos Professional Sku-  .webp"
+    }
+  ]
+}
+
+
