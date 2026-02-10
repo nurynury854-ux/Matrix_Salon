@@ -50,7 +50,7 @@ function renderPricing(pricingData) {
   }
 
   // Render each category
-  Object.values(pricingData).forEach((category) => {
+  Object.values(pricingData).forEach((category, categoryIndex) => {
     // Category header
     const categoryHeader = document.createElement("div");
     categoryHeader.className = "pricing-category-header";
@@ -59,14 +59,25 @@ function renderPricing(pricingData) {
 
     // Check if category has subcategories (new structure)
     if (category.subcategories) {
-      category.subcategories.forEach((subcategory) => {
-        // Subcategory header
+      category.subcategories.forEach((subcategory, subIndex) => {
+        const subcategoryId = `subcategory-${categoryIndex}-${subIndex}`;
+
+        // Subcategory header (collapsible)
         const subcategoryHeader = document.createElement("div");
         subcategoryHeader.className = "pricing-subcategory-header";
         subcategoryHeader.innerHTML = `
-          <h3>${subcategory.name}</h3>
+          <button class="subcategory-toggle" data-subcategory="${subcategoryId}" type="button">
+            <div class="group-header">
+              <h3>${subcategory.name}</h3>
+              <span class="toggle-icon">▼</span>
+            </div>
+          </button>
         `;
         pricingGrid.appendChild(subcategoryHeader);
+
+        const subcategoryContainer = document.createElement("div");
+        subcategoryContainer.id = subcategoryId;
+        subcategoryContainer.className = "subcategory-services hidden";
 
         // Render services in subcategory
         subcategory.services.forEach((service) => {
@@ -101,7 +112,7 @@ function renderPricing(pricingData) {
                 <div class="muted">${service.variants.length} сонголт</div>
               </button>
             `;
-            pricingGrid.appendChild(groupCard);
+            subcategoryContainer.appendChild(groupCard);
 
             // Variants container
             const variantsContainer = document.createElement("div");
@@ -138,7 +149,7 @@ function renderPricing(pricingData) {
               <div class="price">${priceText}</div>
               <div class="muted">Үнэ</div>
             `;
-            pricingGrid.appendChild(card);
+            subcategoryContainer.appendChild(card);
 
             // Add to service select
             if (serviceSelect) {
@@ -149,6 +160,8 @@ function renderPricing(pricingData) {
             }
           }
         });
+
+        pricingGrid.appendChild(subcategoryContainer);
       });
     } else {
       // Old structure with services or variants
@@ -239,6 +252,10 @@ function renderPricing(pricingData) {
   document.querySelectorAll(".group-toggle").forEach((btn) => {
     btn.addEventListener("click", toggleGroup);
   });
+
+  document.querySelectorAll(".subcategory-toggle").forEach((btn) => {
+    btn.addEventListener("click", toggleSubcategory);
+  });
 }
 
 function toggleGroup(event) {
@@ -250,6 +267,20 @@ function toggleGroup(event) {
   if (container) {
     container.classList.toggle("hidden");
     icon.textContent = container.classList.contains("hidden") ? "▼" : "▲";
+  }
+}
+
+function toggleSubcategory(event) {
+  const button = event.currentTarget;
+  const subcategoryId = button.dataset.subcategory;
+  const container = document.getElementById(subcategoryId);
+  const icon = button.querySelector(".toggle-icon");
+
+  if (container) {
+    container.classList.toggle("hidden");
+    if (icon) {
+      icon.textContent = container.classList.contains("hidden") ? "▼" : "▲";
+    }
   }
 }
 
@@ -383,12 +414,22 @@ bookingForm?.addEventListener("submit", (event) => {
   renderTimeSlots();
 });
 
-loadPricing();
-loadProducts();
+// Only load pricing if element exists on this page
+if (document.getElementById("pricing-grid")) {
+  loadPricing();
+}
+
+// Only load products if element exists on this page
+if (document.getElementById("products-grid")) {
+  loadProducts();
+}
+
+// Initialize booking calendar and time slots
 renderDayStrip(new Date());
 renderTimeSlots();
 initDateInput();
 
+// Team modal functionality - only initialize if elements exist on this page
 const teamModal = document.getElementById("team-modal");
 const teamModalName = document.getElementById("team-modal-name");
 const teamModalRole = document.getElementById("team-modal-role");
@@ -397,39 +438,41 @@ const teamModalEducation = document.getElementById("team-modal-education");
 const teamModalQualification = document.getElementById("team-modal-qualification");
 const teamButtons = document.querySelectorAll(".team-more-btn");
 
-function openTeamModal(button) {
-  if (!teamModal || !button) return;
-  teamModalName.textContent = button.dataset.name || "";
-  teamModalRole.textContent = button.dataset.role || "";
-  teamModalSkill.textContent = button.dataset.skill || "";
-  teamModalEducation.textContent = button.dataset.education || "";
-  teamModalQualification.textContent = button.dataset.qualification || "";
-  teamModal.classList.add("is-open");
-  teamModal.setAttribute("aria-hidden", "false");
-}
-
-function closeTeamModal() {
-  if (!teamModal) return;
-  teamModal.classList.remove("is-open");
-  teamModal.setAttribute("aria-hidden", "true");
-}
-
-teamButtons.forEach((button) => {
-  button.addEventListener("click", () => openTeamModal(button));
-});
-
-teamModal?.addEventListener("click", (event) => {
-  const target = event.target;
-  if (target?.matches("[data-team-modal-close]")) {
-    closeTeamModal();
+if (teamButtons.length > 0 && teamModal) {
+  function openTeamModal(button) {
+    if (!teamModal || !button) return;
+    teamModalName.textContent = button.dataset.name || "";
+    teamModalRole.textContent = button.dataset.role || "";
+    teamModalSkill.textContent = button.dataset.skill || "";
+    teamModalEducation.textContent = button.dataset.education || "";
+    teamModalQualification.textContent = button.dataset.qualification || "";
+    teamModal.classList.add("is-open");
+    teamModal.setAttribute("aria-hidden", "false");
   }
-});
 
-document.addEventListener("keydown", (event) => {
-  if (event.key === "Escape" && teamModal?.classList.contains("is-open")) {
-    closeTeamModal();
+  function closeTeamModal() {
+    if (!teamModal) return;
+    teamModal.classList.remove("is-open");
+    teamModal.setAttribute("aria-hidden", "true");
   }
-});
+
+  teamButtons.forEach((button) => {
+    button.addEventListener("click", () => openTeamModal(button));
+  });
+
+  teamModal?.addEventListener("click", (event) => {
+    const target = event.target;
+    if (target?.matches("[data-team-modal-close]")) {
+      closeTeamModal();
+    }
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && teamModal?.classList.contains("is-open")) {
+      closeTeamModal();
+    }
+  });
+}
 
 // Video toggle support for stylist profiles
 document.querySelectorAll('.video-toggle').forEach((btn) => {

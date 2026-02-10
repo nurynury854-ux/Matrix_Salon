@@ -212,7 +212,7 @@ a {
   display: flex;
   align-items: center;
   gap: 1rem;
-  font-size: 1.05rem;
+  font-size: 1.2rem;
   font-weight: 700;
   color: var(--accent);
   margin-top: 1.2rem;
@@ -242,11 +242,26 @@ a {
   justify-content: space-between;
   margin-top: 0.7rem;
   margin-bottom: 0.5rem;
-  padding: 0.6rem 0.9rem;
+  padding: 0;
   background: rgba(100, 211, 154, 0.08);
   border: 1px solid rgba(100, 211, 154, 0.18);
   border-left: 4px solid var(--accent);
   border-radius: 14px;
+}
+
+.subcategory-toggle {
+  all: unset;
+  cursor: pointer;
+  width: 100%;
+  padding: 0.6rem 0.9rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.subcategory-toggle:hover {
+  background-color: rgba(100, 211, 154, 0.08);
 }
 
 .pricing-subcategory-header h3 {
@@ -344,6 +359,24 @@ a {
   padding: 0 1rem;
   margin-top: 0;
   border-color: transparent;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.subcategory-services {
+  grid-column: 1 / -1;
+  display: grid;
+  gap: 0.8rem;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  margin-bottom: 0.8rem;
+  max-height: 9999px;
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.subcategory-services.hidden {
+  max-height: 0;
+  margin-bottom: 0;
   opacity: 0;
   visibility: hidden;
 }
