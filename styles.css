@@ -436,6 +436,46 @@ a {
   margin-bottom: 2rem;
 }
 
+.products-filters {
+  display: flex;
+  justify-content: center;
+  gap: 0.8rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.filter-buttons {
+  display: flex;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.filter-btn {
+  padding: 0.6rem 1.2rem;
+  border: 2px solid rgba(100, 211, 154, 0.3);
+  background: rgba(100, 211, 154, 0.05);
+  color: var(--text);
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'Manrope', sans-serif;
+}
+
+.filter-btn:hover {
+  border-color: rgba(100, 211, 154, 0.6);
+  background: rgba(100, 211, 154, 0.12);
+}
+
+.filter-btn.active {
+  border-color: var(--accent);
+  background: rgba(100, 211, 154, 0.25);
+  color: var(--accent);
+  box-shadow: 0 0 12px rgba(100, 211, 154, 0.3);
+}
+
 .product-card {
   background: linear-gradient(160deg, rgba(100, 211, 154, 0.08), rgba(12, 20, 17, 0.7));
   border: 1px solid rgba(100, 211, 154, 0.18);

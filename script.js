@@ -14,6 +14,7 @@ const formatter = new Intl.NumberFormat("mn-MN");
 const PRODUCTS_PER_PAGE = 15;
 
 let productsCache = [];
+let allProductsCache = [];
 let currentProductsPage = 1;
 
 const timeOptions = [
@@ -310,11 +311,81 @@ async function loadProducts() {
   }
 }
 
+function getProductPrefix(category) {
+  const match = category.match(/^(\d+)\s/);
+  return match ? match[1] : null;
+}
+
+function renderProductFilters(products) {
+  const filtersContainer = document.getElementById("products-filters");
+  if (!filtersContainer) return;
+
+  // Extract unique prefixes and sort them
+  const prefixes = new Set();
+  const prefixLabels = {};
+  
+  products.forEach((product) => {
+    const prefix = getProductPrefix(product.category);
+    if (prefix) {
+      prefixes.add(prefix);
+      prefixLabels[prefix] = product.category.split(' ').slice(1).join(' ');
+    }
+  });
+
+  const sortedPrefixes = Array.from(prefixes).sort((a, b) => parseInt(a) - parseInt(b));
+
+  filtersContainer.innerHTML = '<div class="filter-buttons">';
+  
+  // Add "All" button
+  const allBtn = document.createElement("button");
+  allBtn.className = "filter-btn active";
+  allBtn.dataset.filter = "all";
+  allBtn.textContent = "Бүгд";
+  filtersContainer.appendChild(allBtn);
+
+  // Add prefix buttons
+  sortedPrefixes.forEach((prefix) => {
+    const btn = document.createElement("button");
+    btn.className = "filter-btn";
+    btn.dataset.filter = prefix;
+    btn.textContent = prefix;
+    filtersContainer.appendChild(btn);
+  });
+
+  filtersContainer.innerHTML += "</div>";
+
+  // Add filter event listeners
+  document.querySelectorAll(".filter-btn").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const filter = btn.dataset.filter;
+      filterProducts(filter);
+      
+      // Update active button
+      document.querySelectorAll(".filter-btn").forEach((b) => b.classList.remove("active"));
+      btn.classList.add("active");
+    });
+  });
+}
+
+function filterProducts(prefix) {
+  if (prefix === "all") {
+    productsCache = allProductsCache;
+  } else {
+    productsCache = allProductsCache.filter((product) => {
+      return getProductPrefix(product.category) === prefix;
+    });
+  }
+  currentProductsPage = 1;
+  renderProductsPage(currentProductsPage);
+}
+
 function renderProducts(data) {
   const productsGrid = document.getElementById("products-grid");
   if (!productsGrid) return;
-  productsCache = Array.isArray(data.products) ? data.products : [];
+  allProductsCache = Array.isArray(data.products) ? data.products : [];
+  productsCache = allProductsCache;
   currentProductsPage = 1;
+  renderProductFilters(allProductsCache);
   renderProductsPage(currentProductsPage);
 }
 
