@@ -432,8 +432,9 @@ a {
 .products-grid {
   display: grid;
   gap: 1rem;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(200px, 200px));
   margin-bottom: 2rem;
+  justify-content: start;
 }
 
 .products-filters {
