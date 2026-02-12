@@ -11,6 +11,10 @@ const bookingSuccess = document.getElementById("booking-success");
 const todayBtn = document.getElementById("today-btn");
 
 const formatter = new Intl.NumberFormat("mn-MN");
+const PRODUCTS_PER_PAGE = 15;
+
+let productsCache = [];
+let currentProductsPage = 1;
 
 const timeOptions = [
   "09:00",
@@ -309,25 +313,72 @@ async function loadProducts() {
 function renderProducts(data) {
   const productsGrid = document.getElementById("products-grid");
   if (!productsGrid) return;
+  productsCache = Array.isArray(data.products) ? data.products : [];
+  currentProductsPage = 1;
+  renderProductsPage(currentProductsPage);
+}
+
+function renderProductsPage(page) {
+  const productsGrid = document.getElementById("products-grid");
+  if (!productsGrid) return;
   productsGrid.innerHTML = "";
 
-  data.products.forEach((product) => {
+  const totalProducts = productsCache.length;
+  const totalPages = Math.ceil(totalProducts / PRODUCTS_PER_PAGE) || 1;
+  const safePage = Math.min(Math.max(page, 1), totalPages);
+  currentProductsPage = safePage;
+
+  const startIndex = (safePage - 1) * PRODUCTS_PER_PAGE;
+  const visibleProducts = productsCache.slice(startIndex, startIndex + PRODUCTS_PER_PAGE);
+
+  visibleProducts.forEach((product) => {
     const productCard = document.createElement("div");
     productCard.className = "product-card";
     const priceDisplay = formatter.format(product.price);
     productCard.innerHTML = `
       <div class="product-image">
-        <img src="${product.image}" alt="${product.name}" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22200%22%3E%3Crect fill=%22%23161f1a%22 width=%22200%22 height=%22200%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-size=%2214%22 fill=%22%2364d39a%22 text-anchor=%22middle%22 dy=%22.3em%22%3EAmos Professional%3C/text%3E%3C/svg%3E'\" />
+        <img src="${product.image}" alt="${product.name}" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22200%22%3E%3Crect fill=%22%23161f1a%22 width=%22200%22 height=%22200%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-size=%2214%22 fill=%22%2364d39a%22 text-anchor=%22middle%22 dy=%22.3em%22%3EAmos Professional%3C/text%3E%3C/svg%3E'" />
       </div>
       <div class="product-info">
         <div class="product-category">${product.category}</div>
         <h4>${product.name}</h4>
         <div class="product-price">${priceDisplay} ₮</div>
       </div>
-      <a href="${product.url}" target="_blank" class="ghost-btn product-link">Дэлгэрэнгүй</a>
+      <button type="button" class="ghost-btn product-link">Дэлгэрэнгүй</button>
     `;
     productsGrid.appendChild(productCard);
   });
+
+  renderProductsPagination(totalPages);
+}
+
+function renderProductsPagination(totalPages) {
+  const pagination = document.getElementById("products-pagination");
+  if (!pagination) return;
+  pagination.innerHTML = "";
+
+  if (totalPages <= 1) {
+    pagination.style.display = "none";
+    return;
+  }
+
+  pagination.style.display = "flex";
+
+  for (let page = 1; page <= totalPages; page += 1) {
+    const pageButton = document.createElement("button");
+    pageButton.type = "button";
+    pageButton.className = "page-btn";
+    if (page === currentProductsPage) {
+      pageButton.classList.add("active");
+      pageButton.setAttribute("aria-current", "page");
+    }
+    pageButton.textContent = page;
+    pageButton.addEventListener("click", () => {
+      renderProductsPage(page);
+      document.getElementById("products")?.scrollIntoView({ behavior: "smooth" });
+    });
+    pagination.appendChild(pageButton);
+  }
 }
 
 function getDayLabel(date) {

@@ -1,86 +1,788 @@
 {
   "products": [
     {
-      "id": 10639,
-      "name": "SCALP BRUSH Хуйханд зориулсан массажны сам",
-      "price": 34900,
+      "id": 589681,
+      "name": "HAIR FIT CURL UP JELLY - Amos Professional",
+      "price": 59000,
+      "category": "04 Curling styling",
+      "url": "https://amosprofessional.mn/products/589681",
+      "image": "Products/HAIR FIT CURL UP JELLY - Amos Professional .jpg"
+    },
+    {
+      "id": 586972,
+      "name": "Үсний хар сэнс - Amos Professional",
+      "price": 250000,
       "category": "Багаж хэрэгсэл",
+      "url": "https://amosprofessional.mn/products/586972",
+      "image": "Products/Үсний хар сэнс - Amos Professional.webp"
+    },
+    {
+      "id": 586971,
+      "name": "Үсний цагаан сэнс - Amos Professional",
+      "price": 300000,
+      "category": "Багаж хэрэгсэл",
+      "url": "https://amosprofessional.mn/products/586971",
+      "image": "Products/Үсний цагаан сэнс - Amos Professional.webp"
+    },
+    {
+      "id": 583884,
+      "name": "06 RENEW CAMELLIA Хуйх чангалах, хуйхны хөгшрөлтийн эсрэг тестер багц 5мл (5ш + 5ш) - Amos Professional",
+      "price": 30000,
+      "category": "06 Хуйхны хөгшрөлтийн эсрэг арчилгаа",
+      "url": "https://amosprofessional.mn/products/583884",
+      "image": "Products/06 RENEW CAMELLIA Тослог хуйханд зориулсан хуйхны хөгшрөлтийн эсрэг багц - Amos Profesional.jpg"
+    },
+    {
+      "id": 583881,
+      "name": "Эмзэг мэдрэмтгий хуйхтай, үс уналттай, хуурайшилттай үсэнд зориулсан багц - Amos Professional",
+      "price": 245000,
+      "category": "Асуудлын цогц шийдэл",
+      "url": "https://amosprofessional.mn/products/583881",
+      "image": "Products/02 THE GREEN TEA Эмзэг, мэдрэмтгий хуйханд зориулсан багц - Amos Professional.jpg"
+    },
+    {
+      "id": 583877,
+      "name": "Тослог хуйхтай, үс уналттай, хуурайшилттай үсэнд зориулсан багц - Amos Professional",
+      "price": 245000,
+      "category": "Асуудлын цогц шийдэл",
+      "url": "https://amosprofessional.mn/products/583877",
+      "image": "Products/Тослог хуйхтай, үс уналттай, хуурайшилттай.jpg"
+    },
+    {
+      "id": 583873,
+      "name": "Энгийн болон хуурай хуйхтай, үс уналттай, хуурайшилттай үсэнд зориулсан багц - Amos Professional",
+      "price": 245000,
+      "category": "Асуудлын цогц шийдэл",
+      "url": "https://amosprofessional.mn/products/583873",
+      "image": "Products/Энгийн болон хуурай хуйхтай үс уналттай, хэт.jpg"
+    },
+    {
+      "id": 583870,
+      "name": "Индүү, сэнс хэрэглэдэг гэмтэлтэй, бүдүүн ширхэгтэй, үс уналттай хуйханд зориулсан багц - Amos Professional",
+      "price": 300000,
+      "category": "Асуудлын цогц шийдэл",
+      "url": "https://amosprofessional.mn/products/583870",
+      "image": "Products/02 THE GREEN TEA Эмзэг, мэдрэмтгий хуйханд зориулсан багц - Amos Professional.jpg"
+    },
+    {
+      "id": 583858,
+      "name": "Индүү, сэнс хэрэглэдэг гэмтэлтэй, нарийн ширхэгтэй, үс уналттай хуйханд зориулсан багц - Amos Professional",
+      "price": 300000,
+      "category": "Асуудлын цогц шийдэл",
+      "url": "https://amosprofessional.mn/products/583858",
+      "image": "Products/02 THE GREEN TEA Эмзэг, мэдрэмтгий хуйханд зориулсан багц - Amos Professional.jpg"
+    },
+    {
+      "id": 583855,
+      "name": "Эмзэг мэдрэмтгий хуйхтай үс уналттай, хэт гэмтэлтэй үсэнд зориулсан багц - Amos Professional",
+      "price": 333000,
+      "category": "Асуудлын цогц шийдэл",
+      "url": "https://amosprofessional.mn/products/583855",
+      "image": "Products/02 THE GREEN TEA Эмзэг, мэдрэмтгий хуйханд зориулсан багц - Amos Professional.jpg"
+    },
+    {
+      "id": 583852,
+      "name": "Тослог хуйхтай үс уналттай, хэт гэмтэлтэй үсэнд зориулсан багц - Amos Professional",
+      "price": 333000,
+      "category": "Асуудлын цогц шийдэл",
+      "url": "https://amosprofessional.mn/products/583852",
+      "image": "Products/Тослог хуйхтай үс уналттай, хэт гэмтэлтэй.jpg"
+    },
+    {
+      "id": 583842,
+      "name": "Энгийн болон хуурай хуйхтай үс уналттай, хэт гэмтэлтэй үсэнд зориулсан багц - Amos Professional",
+      "price": 333000,
+      "category": "Асуудлын цогц шийдэл",
+      "url": "https://amosprofessional.mn/products/583842",
+      "image": "Products/Энгийн болон хуурай хуйхтай үс уналттай, хэт.jpg"
+    },
+    {
+      "id": 583797,
+      "name": "Тослог, үнэр гардаг, бужигнасан хагтай, үс уналттай, хэт гэмтэлтэй үсний багц - Amos Professional",
+      "price": 311000,
+      "category": "Асуудлын цогц шийдэл",
+      "url": "https://amosprofessional.mn/products/583797",
+      "image": "Products/02 PURE SMART Тослогтдог, жижиг бужигнасан хаганд зориулсан багц - Amos Professional.jpg"
+    },
+    {
+      "id": 583792,
+      "name": "Тослог жижиг бужигнасан. хагтай, үс уналттай, хэт гэмтэлтэй үсний багц - Amos Professional",
+      "price": 311000,
+      "category": "Асуудлын цогц шийдэл",
+      "url": "https://amosprofessional.mn/products/583792",
+      "image": "Products/02 PURE SMART Тослогтдог, жижиг бужигнасан хаганд зориулсан багц - Amos Professional.jpg"
+    },
+    {
+      "id": 583773,
+      "name": "Хуурай хавтгай хагтай, үс уналттай, хэт гэмтэлтэй үсний багц - Amos Professional",
+      "price": 311000,
+      "category": "Асуудлын цогц шийдэл",
+      "url": "https://amosprofessional.mn/products/583773",
+      "image": "Products/ Хуурай хавтгай хагтай, үс уналттай, хэт гэмтэлтэй.jpg"
+    },
+    {
+      "id": 582815,
+      "name": "SCALP BRUSH - Amos Professional",
+      "price": 34900,
+      "category": "01 Pro basic style",
       "url": "https://amosprofessional.mn/products/582815",
       "image": "Products/SCALP BRUSH - Amos Professional.jpg"
     },
     {
-      "id": 1806,
-      "name": "01 HARD SPRITZ Цацдаг хэв баригч спрей",
+      "id": 582657,
+      "name": "GREEN TEA ACTIVE Клиник үс уналтын эсрэг аяллын багц - Amos Global",
+      "price": 65900,
+      "category": "Amos Global",
+      "url": "https://amosprofessional.mn/products/582657",
+      "image": "Products/GREEN TEA ACTIVE Клиник үс уналтын эсрэг аяллын.webp"
+    },
+    {
+      "id": 582655,
+      "name": "GREEN TEA ACTIVE Клиник үс уналтын эсрэг булцуу чангалах ногоон цайны үүдэл эс ампул - Amos Global",
+      "price": 41000,
+      "category": "Amos Global",
+      "url": "https://amosprofessional.mn/products/582655",
+      "image": "Products/GREEN TEA ACTIVE Клиник үс уналтын эсрэг хуйхны бохирдол гуужуулах далайн давстай шампунь - Amos Global.webp"
+    },
+    {
+      "id": 582653,
+      "name": "GREEN TEA ACTIVE Клиник үс уналтын эсрэг хуйхны маск - Amos Global",
+      "price": 105000,
+      "category": "Amos Global",
+      "url": "https://amosprofessional.mn/products/582653",
+      "image": "Products/GREEN TEA ACTIVE Клиник үс уналтын эсрэг хуйхны.webp"
+    },
+    {
+      "id": 582651,
+      "name": "GREEN TEA ACTIVE Клиник үс уналтын эсрэг хуйхны бохирдол гуужуулах далайн давстай шампунь - Amos Global",
+      "price": 115900,
+      "category": "Amos Global",
+      "url": "https://amosprofessional.mn/products/582651",
+      "image": "Products/GREEN TEA ACTIVE Клиник үс уналтын эсрэг хуйхны бохирдол гуужуулах далайн давстай шампунь - Amos Global.webp"
+    },
+    {
+      "id": 582649,
+      "name": "GREEN TEA ACTIVE Клиник үс уналтын эсрэг шампунь - Amos Global",
+      "price": 105000,
+      "category": "Amos Global",
+      "url": "https://amosprofessional.mn/products/582649",
+      "image": "Products/GREEN TEA ACTIVE Клиник үс уналтын эсрэг шампунь.webp"
+    },
+    {
+      "id": 582648,
+      "name": "GREEN TEA ACTIVE Клиник үс уналтын эсрэг багц - Amos Global",
+      "price": 571900,
+      "category": "Amos Global",
+      "url": "https://amosprofessional.mn/products/582648",
+      "image": "Products/GREEN TEA ACTIVE Клиник үс уналтын эсрэг багц -.webp"
+    },
+    {
+      "id": 581142,
+      "name": "TRUE REPAIR Үсний эссэнс - Amos Global",
+      "price": 75900,
+      "category": "Amos Global",
+      "url": "https://amosprofessional.mn/products/581142",
+      "image": "Products/TRUE REPAIR Үсний эссэнс - Amos Global.webp"
+    },
+    {
+      "id": 581141,
+      "name": "TRUE REPAIR Шөнийн тос - Amos Global",
+      "price": 75900,
+      "category": "Amos Global",
+      "url": "https://amosprofessional.mn/products/581141",
+      "image": "Products/TRUE REPAIR Шөнийн тос - Amos Global.webp"
+    },
+    {
+      "id": 581140,
+      "name": "TRUE REPAIR Үсний тэжээл - Amos Global",
+      "price": 75900,
+      "category": "Amos Global",
+      "url": "https://amosprofessional.mn/products/581140",
+      "image": "Products/TRUE REPAIR Үсний тэжээл - Amos Global.webp"
+    },
+    {
+      "id": 581139,
+      "name": "TRUE REPAIR Шампунь - Amos Global",
+      "price": 75900,
+      "category": "Amos Global",
+      "url": "https://amosprofessional.mn/products/581139",
+      "image": "Products/TRUE REPAIR Шампунь - Amos Global.webp"
+    },
+    {
+      "id": 581138,
+      "name": "TRUE REPAIR Гэмтэлтэй хуурайшсан үсний ком - Amos Global",
+      "price": 303600,
+      "category": "Amos Global",
+      "url": "https://amosprofessional.mn/products/581138",
+      "image": "Products/TRUE REPAIR Гэмтэлтэй хуурайшсан үсний ком -.webp"
+    },
+    {
+      "id": 581137,
+      "name": "BOTANIC CALM Үсний ургалт дэмжиж өтгөрүүлэх ойл - Amos Global",
+      "price": 85900,
+      "category": "Amos Global",
+      "url": "https://amosprofessional.mn/products/581137",
+      "image": "Products/ BOTANIC CALM Үсний ургалт дэмжиж өтгөрүүлэх ойл - Amos Global.webp"
+    },
+    {
+      "id": 581136,
+      "name": "BOTANIC CALM Үсний ургалт дэмжиж өтгөрүүлэх аяллын багц - Amos Global",
+      "price": 85900,
+      "category": "Amos Global",
+      "url": "https://amosprofessional.mn/products/581136",
+      "image": "Products/ BOTANIC CALM Үсний ургалт дэмжиж өтгөрүүлэх ойл - Amos Global.webp"
+    },
+    {
+      "id": 581135,
+      "name": "BOTANIC CALM Үсний ургалт дэмжиж өтгөрүүлэх серум - Amos Global",
+      "price": 95900,
+      "category": "Amos Global",
+      "url": "https://amosprofessional.mn/products/581135",
+      "image": "Products/BOTANIC CALM Үсний ургалт дэмжиж өтгөрүүлэх серум - Amos Global.webp"
+    },
+    {
+      "id": 581100,
+      "name": "BOTANIC CALM Үсний ургалт дэмжиж өтгөрүүлэх шампунь - Amos Global",
+      "price": 105000,
+      "category": "Amos Global",
+      "url": "https://amosprofessional.mn/products/581100",
+      "image": "Products/BOTANIC CALM Үсний ургалт дэмжиж өтгөрүүлэх серум - Amos Global.webp"
+    },
+    {
+      "id": 581098,
+      "name": "BOTANIC CALM Үсний ургалт дэмжиж өтгөрүүлэх багц - Amos Global",
+      "price": 286800,
+      "category": "Amos Global",
+      "url": "https://amosprofessional.mn/products/581098",
+      "image": "Products/BOTANIC CALM Үсний ургалт дэмжиж өтгөрүүлэх серум - Amos Global.webp"
+    },
+    {
+      "id": 580474,
+      "name": "01 ANTI YELLOW Үсний шар туяаг дарах шампунь - Amos Professional",
+      "price": 96000,
+      "category": "01 Pro basic style",
+      "url": "https://amosprofessional.mn/products/580474",
+      "image": "Products/01 ANTI YELLOW Үсний шар туяаг дарах шампунь -.jpg"
+    },
+    {
+      "id": 580473,
+      "name": "03 SILKY RADIANCE Будагтай үсний ойл 10мл - Amos Profesional",
+      "price": 19900,
+      "category": "03 Будагтай үс арчилгаа",
+      "url": "https://amosprofessional.mn/products/580473",
+      "image": "Products/03 SILKY RADIANCE Будагтай үс арчилгааны багц - Amos Profesional.jpg"
+    },
+    {
+      "id": 580459,
+      "name": "01 HARD SPRITZ - Amos Professional",
       "price": 38000,
       "category": "01 Pro basic style",
       "url": "https://amosprofessional.mn/products/580459",
       "image": "Products/01 HARD SPRITZ - Amos Professional.webp"
     },
     {
-      "id": 9106,
-      "name": "02 PURE SMART Тослогтдог хаганд зориулсан багц",
-      "price": 157000,
-      "category": "02 Scalp хуйхны эрүүл мэнд",
-      "url": "https://amosprofessional.mn/products/578349",
-      "image": "Products/02 PURE SMART Тослогтдог, жижиг бужигнасан хаганд зориулсан багц - Amos Professional.jpg"
-    },
-    {
-      "id": 9104,
-      "name": "02 THE GREEN TEA Эмзэг мэдрэмтгий хуйханд зориулсан багц",
-      "price": 329000,
+      "id": 580135,
+      "name": "02 THE GREEN TEA Хуурай болон энгийн хуйханд зориулсан үс уналтын эсрэг шамунь - Amos Professional",
+      "price": 95000,
       "category": "02 Scalp үс уналтын эсрэг",
-      "url": "https://amosprofessional.mn/products/578327",
-      "image": "Products/02 THE GREEN TEA Эмзэг, мэдрэмтгий хуйханд зориулсан багц - Amos Professional.jpg"
+      "url": "https://amosprofessional.mn/products/580135",
+      "image": "Products/02 THE GREEN TEA Эмзэг, мэдрэмтгий хуйханд зориулсан багц - Amos Professional.jpg"
     },
     {
-      "id": 9109,
-      "name": "03 SILKY RADIANCE Будагтай үс арчилгааны багц",
-      "price": 243000,
-      "category": "03 Будагтай үс арчилгаа",
-      "url": "https://amosprofessional.mn/products/578396",
-      "image": "Products/03 SILKY RADIANCE Будагтай үс арчилгааны багц - Amos Profesional.jpg"
+      "id": 580126,
+      "name": "01 HARD SETTING GEL - Amos Profesional",
+      "price": 58000,
+      "category": "01 Pro basic style",
+      "url": "https://amosprofessional.mn/products/580126",
+      "image": "Products/01 HARD SETTING GEL - Amos Profesional.jpg"
     },
     {
-      "id": 1631,
-      "name": "04 Curling Fixer Долгион дэмжигч цацдаг хэв баригч",
+      "id": 580124,
+      "name": "04 Curling Fixer Долгион дэмжигч цацдаг хэв баригч - Amos Professional",
       "price": 54000,
-      "category": "04 Curling styling",
+      "category": "04 Styling",
       "url": "https://amosprofessional.mn/products/580124",
       "image": "Products/04 Curling Fixer Долгион дэмжигч цацдаг хэв баригч - Amos Professional.webp"
     },
     {
-      "id": 9108,
-      "name": "05 REPAIR CMC Химитэй гэмтэлтэй үсний багц",
-      "price": 300000,
-      "category": "05 Гэмтэлтэй үс арчилгаа",
-      "url": "https://amosprofessional.mn/products/578361",
-      "image": "Products/05 REPAIR CMC Химитэй, гэмтэлтэй үсний багц - Amos Profesional.jpg"
+      "id": 580123,
+      "name": "01 POINT STYLE STICK Нялх үс дарагч - Amos Professional",
+      "price": 44000,
+      "category": "01 Pro basic style",
+      "url": "https://amosprofessional.mn/products/580123",
+      "image": "Products/01 POINT STYLE STICK Нялх үс дарагч - Amos.jpg"
     },
     {
-      "id": 9111,
-      "name": "06 RENEW CAMELLIA Тослог хуйханд зориулсан хөгшрөлтийн эсрэг багц",
-      "price": 309700,
-      "category": "06 Хуйхны хөгшрөлтийн эсрэг арчилгаа",
-      "url": "https://amosprofessional.mn/products/579420",
-      "image": "Products/06 RENEW CAMELLIA Тослог хуйханд зориулсан хуйхны хөгшрөлтийн эсрэг багц - Amos Profesional.jpg"
+      "id": 579482,
+      "name": "02 THE GREEN TEA Үс уналтын эсрэг тослог хуйхны шампунь - Amos Professional",
+      "price": 95000,
+      "category": "02 Scalp үс уналтын эсрэг",
+      "url": "https://amosprofessional.mn/products/579482",
+      "image": "Products/02 THE GREEN TEA Үс уналтын эсрэг хуйхны маск - Amos Professiona.jpg"
     },
     {
-      "id": 10762,
-      "name": "Үсний хар сэнс",
-      "price": 250000,
-      "category": "Багаж хэрэгсэл",
-      "url": "https://amosprofessional.mn/products/586972",
-      "image": "Products/Үсний цагаан сэнс - Amos Professional.webp"
+      "id": 579447,
+      "name": "04 CURLING ESSENCE 2Х 40мл Буржгар үсний хэв баригч - Amos Professional",
+      "price": 23000,
+      "category": "04 Curling styling",
+      "url": "https://amosprofessional.mn/products/579447",
+      "image": "Products/04 CURLING ESSENCE 2Х 40мл Буржгар үсний хэв.jpg"
     },
     {
-      "id": 1382,
-      "name": "01 Softening conditioner Цацдаг ангижруулагч",
+      "id": 579446,
+      "name": "04 CURLING ESSENCE 2X 150мл Цэцгийн үнэртэй буржгар үсний хэв баригч - Amos Professional",
+      "price": 49000,
+      "category": "04 Styling",
+      "url": "https://amosprofessional.mn/products/579446",
+      "image": "Products/04 CURLING ESSENCE 2X 150мл Буржгар үсний хэв.jpg"
+    },
+    {
+      "id": 579445,
+      "name": "04 CURLING ESSENCE 2X 150мл Тоорын үнэртэй буржгар үсний хэв баригч - Amos Professional",
+      "price": 49000,
+      "category": "04 Styling",
+      "url": "https://amosprofessional.mn/products/579445",
+      "image": "Products/04 CURLING ESSENCE 2X 150мл Буржгар үсний хэв.jpg"
+    },
+    {
+      "id": 579444,
+      "name": "04 CURLING ESSENCE 2X 150мл Буржгар үсний хэв баригч - Amos Professional",
+      "price": 49000,
+      "category": "04 Styling",
+      "url": "https://amosprofessional.mn/products/579444",
+      "image": "Products/04 CURLING ESSENCE 2X 150мл Буржгар үсний хэв.jpg"
+    },
+    {
+      "id": 579443,
+      "name": "01 Softening conditioner Цацдаг ангижруулагч - Amos Professional",
       "price": 46000,
       "category": "01 Pro basic style",
       "url": "https://amosprofessional.mn/products/579443",
       "image": "Products/01 Softening conditioner Цацдаг ангижруулагч - Amos Professional Sku-  .webp"
+    },
+    {
+      "id": 579442,
+      "name": "01 TOUCH UP CONCEALER Буурал үсний өө дарагч харандаа - Amos Professional",
+      "price": 44000,
+      "category": "01 Pro basic style",
+      "url": "https://amosprofessional.mn/products/579442",
+      "image": "Products/01 TOUCH UP CONCEALER Буурал үсний өө дарагч.jpg"
+    },
+    {
+      "id": 579441,
+      "name": "01 HAIR COVER CUSHION DEEP BROWN - Amos Professional",
+      "price": 89000,
+      "category": "01 Pro basic style",
+      "url": "https://amosprofessional.mn/products/579441",
+      "image": "Products/01 HAIR COVER CUSHION DEEP BROWN - Amos.jpg"
+    },
+    {
+      "id": 579440,
+      "name": "01 POLISH TEXTURIZER Нойтон мэт харагдуулах стайлинг - Amos Professional",
+      "price": 79000,
+      "category": "01 Pro basic style",
+      "url": "https://amosprofessional.mn/products/579440",
+      "image": "Products/01 POLISH TEXTURIZER Нойтон мэт харагдуулах.jpg"
+    },
+    {
+      "id": 579439,
+      "name": "01 DESIGN SPRAY Мэргэжлийн лак - Amos Professional",
+      "price": 42000,
+      "category": "01 Pro basic style",
+      "url": "https://amosprofessional.mn/products/579439",
+      "image": "Products/01 DESIGN SPRAY Мэргэжлийн лак - Amos.jpg"
+    },
+    {
+      "id": 579432,
+      "name": "06 RENEW CAMELLIA Хуйхны хөгшрөлтийн эсрэг хуйхны маск 5гр 10ш - Amos Profesional",
+      "price": 30000,
+      "category": "06 Хуйхны хөгшрөлтийн эсрэг арчилгаа",
+      "url": "https://amosprofessional.mn/products/579432",
+      "image": "Products/06 RENEW CAMELLIA Тослог хуйханд зориулсан хуйхны хөгшрөлтийн эсрэг багц - Amos Profesional.jpg"
+    },
+    {
+      "id": 579430,
+      "name": "06 RENEW CAMELLIA Тослог хуйхны хөгшрөлтийн эсрэг шампунь 5гр 10ш - Amos Profesional",
+      "price": 30000,
+      "category": "06 Хуйхны хөгшрөлтийн эсрэг арчилгаа",
+      "url": "https://amosprofessional.mn/products/579430",
+      "image": "Products/06 RENEW CAMELLIA Тослог хуйхны хөгшрөлтийн эсрэг шампунь .webp"
+    },
+    {
+      "id": 579429,
+      "name": "06 RENEW CAMELLIA Хуурай хуйхны хөгшрөлтийн эсрэг шампунь 5гр 10ш - Amos Profesional",
+      "price": 30000,
+      "category": "06 Хуйхны хөгшрөлтийн эсрэг арчилгаа",
+      "url": "https://amosprofessional.mn/products/579429",
+      "image": "Products/06 RENEW CAMELLIA Хуурай хуйхны хөгшрөлтийн эсрэг шампунь.jpg"
+    },
+    {
+      "id": 579426,
+      "name": "06 RENEW CAMELLIA Хуйхны хөгшрөлтийн эсрэг чийгшүүлэх ампул - Amos Professional",
+      "price": 99900,
+      "category": "06 Хуйхны хөгшрөлтийн эсрэг арчилгаа",
+      "url": "https://amosprofessional.mn/products/579426",
+      "image": "Products/06 RENEW CAMELLIA Тослог хуйханд зориулсан хуйхны хөгшрөлтийн эсрэг багц - Amos Profesional.jpg"
+    },
+    {
+      "id": 579425,
+      "name": "06 RENEW CAMELLIA Хуйхны хөгшрөлтийн эсрэг хуйхны маск - Amos Profesional",
+      "price": 99900,
+      "category": "06 Хуйхны хөгшрөлтийн эсрэг арчилгаа",
+      "url": "https://amosprofessional.mn/products/579425",
+      "image": "Products/06 RENEW CAMELLIA Тослог хуйханд зориулсан хуйхны хөгшрөлтийн эсрэг багц - Amos Profesional.jpg"
+    },
+    {
+      "id": 579424,
+      "name": "06 RENEW CAMELLIA Тослог хуйхны хөгшрөлтийн эсрэг шампунь - Amos Profesional",
+      "price": 109900,
+      "category": "06 Хуйхны хөгшрөлтийн эсрэг арчилгаа",
+      "url": "https://amosprofessional.mn/products/579424",
+      "image": "Products/06 RENEW CAMELLIA Тослог хуйхны хөгшрөлтийн эсрэг шампунь .webp"
+    },
+    {
+      "id": 579423,
+      "name": "06 RENEW CAMELLIA Хуурай хуйхны хөгшрөлтийн эсрэг шампунь - Amos Profesional",
+      "price": 109900,
+      "category": "06 Хуйхны хөгшрөлтийн эсрэг арчилгаа",
+      "url": "https://amosprofessional.mn/products/579423",
+      "image": "Products/06 RENEW CAMELLIA Хуурай хуйхны хөгшрөлтийн эсрэг шампунь.jpg"
+    },
+    {
+      "id": 579421,
+      "name": "06 RENEW CAMELLIA Энгийн болон хуурай хуйханд зориулсан хуйхны хөгшрөлтийн эсрэг багц - Amos Profesional",
+      "price": 309700,
+      "category": "Багц бүтээгдэхүүн",
+      "url": "https://amosprofessional.mn/products/579421",
+      "image": "Products/06 RENEW CAMELLIA Тослог хуйханд зориулсан хуйхны хөгшрөлтийн эсрэг багц - Amos Profesional.jpg"
+    },
+    {
+      "id": 579420,
+      "name": "06 RENEW CAMELLIA Тослог хуйханд зориулсан хуйхны хөгшрөлтийн эсрэг багц - Amos Profesional",
+      "price": 309700,
+      "category": "Багц бүтээгдэхүүн",
+      "url": "https://amosprofessional.mn/products/579420",
+      "image": "Products/06 RENEW CAMELLIA Тослог хуйханд зориулсан хуйхны хөгшрөлтийн эсрэг багц - Amos Profesional.jpg"
+    },
+    {
+      "id": 578458,
+      "name": "01 COLOR&PERM SHAMPOO, CONDITIONER Хими, будагтай үсний арчилгаа - Amos Professional",
+      "price": 136000,
+      "category": "Багц бүтээгдэхүүн",
+      "url": "https://amosprofessional.mn/products/578458",
+      "image": "Products/03 SILKY RADIANCE Будагтай үс арчилгааны багц - Amos Profesional.jpg"
+    },
+    {
+      "id": 578457,
+      "name": "01 HARD SPRAY - Amos Professional",
+      "price": 38000,
+      "category": "01 Pro basic style",
+      "url": "https://amosprofessional.mn/products/578457",
+      "image": "Products/01 HARD SPRAY - Amos Professional.jpg"
+    },
+    {
+      "id": 578440,
+      "name": "01 MATT WAX - Amos Professional",
+      "price": 58000,
+      "category": "01 Pro basic style",
+      "url": "https://amosprofessional.mn/products/578440",
+      "image": "Products/01 MATT WAX - Amos Professional.jpg"
+    },
+    {
+      "id": 578438,
+      "name": "01 FREEZE WAX - Amos Professional",
+      "price": 58000,
+      "category": "01 Pro basic style",
+      "url": "https://amosprofessional.mn/products/578438",
+      "image": "Products/01 FREEZE WAX - Amos Professional.jpg"
+    },
+    {
+      "id": 578437,
+      "name": "01 NATURAL WAX - Amos Professional",
+      "price": 58000,
+      "category": "01 Pro basic style",
+      "url": "https://amosprofessional.mn/products/578437",
+      "image": "Products/01 NATURAL WAX - Amos Professional.jpg"
+    },
+    {
+      "id": 578435,
+      "name": "03 SILKY RADIANCE Будагтай үс арчилгааны тэжээл - Amos Profesional",
+      "price": 79000,
+      "category": "03 Будагтай үс арчилгаа",
+      "url": "https://amosprofessional.mn/products/578435",
+      "image": "Products/03 SILKY RADIANCE Будагтай үс арчилгааны багц - Amos Profesional.jpg"
+    },
+    {
+      "id": 578432,
+      "name": "03 SILKY RADIANCE Будагтай үсний ойл - Amos Profesional",
+      "price": 79000,
+      "category": "03 Будагтай үс арчилгаа",
+      "url": "https://amosprofessional.mn/products/578432",
+      "image": "Products/03 SILKY RADIANCE Будагтай үс арчилгааны багц - Amos Profesional.jpg"
+    },
+    {
+      "id": 578431,
+      "name": "03 SILKY RADIANCE Будагтай үс арчилгааны шампунь - Amos Profesional",
+      "price": 85000,
+      "category": "03 Будагтай үс арчилгаа",
+      "url": "https://amosprofessional.mn/products/578431",
+      "image": "Products/03 SILKY RADIANCE Будагтай үс арчилгааны багц - Amos Profesional.jpg"
+    },
+    {
+      "id": 578396,
+      "name": "03 SILKY RADIANCE Будагтай үс арчилгааны багц - Amos Profesional",
+      "price": 243000,
+      "category": "Багц бүтээгдэхүүн",
+      "url": "https://amosprofessional.mn/products/578396",
+      "image": "Products/03 SILKY RADIANCE Будагтай үс арчилгааны багц - Amos Profesional.jpg"
+    },
+    {
+      "id": 578391,
+      "name": "05 REPAIR CMC Химитэй, гэмтэлтэй үсний ойл 10мл - Amos Profesional",
+      "price": 19900,
+      "category": "05 Гэмтэлтэй үс арчилгаа",
+      "url": "https://amosprofessional.mn/products/578391",
+      "image": "Products/05 REPAIR CMC Химитэй, гэмтэлтэй үсний багц - Amos Profesional.jpg"
+    },
+    {
+      "id": 578368,
+      "name": "05 REPAIR CMC Химитэй, гэмтэлтэй үсний ойл - Amos Profesional",
+      "price": 75000,
+      "category": "05 Гэмтэлтэй үс арчилгаа",
+      "url": "https://amosprofessional.mn/products/578368",
+      "image": "Products/05 REPAIR CMC Химитэй, гэмтэлтэй үсний багц - Amos Profesional.jpg"
+    },
+    {
+      "id": 578367,
+      "name": "05 REPAIR CMC Халуунаас хамгаалагч үсний тос - Amos Profesional",
+      "price": 75000,
+      "category": "05 Гэмтэлтэй үс арчилгаа",
+      "url": "https://amosprofessional.mn/products/578367",
+      "image": "Products/05 REPAIR CMC Халуунаас хамгаалагч үсний тос -.jpg"
+    },
+    {
+      "id": 578366,
+      "name": "05 REPAIR CMC Химитэй, гэмтэлтэй үсний тэжээл - Amos Profesional",
+      "price": 75000,
+      "category": "05 Гэмтэлтэй үс арчилгаа",
+      "url": "https://amosprofessional.mn/products/578366",
+      "image": "Products/05 REPAIR CMC Химитэй, гэмтэлтэй үсний багц - Amos Profesional.jpg"
+    },
+    {
+      "id": 578363,
+      "name": "05 REPAIR CMC Химитэй, гэмтэлтэй үсний шампунь - Amos Profesional",
+      "price": 75000,
+      "category": "05 Гэмтэлтэй үс арчилгаа",
+      "url": "https://amosprofessional.mn/products/578363",
+      "image": "Products/05 REPAIR CMC Химитэй, гэмтэлтэй үсний багц - Amos Profesional.jpg"
+    },
+    {
+      "id": 578361,
+      "name": "05 REPAIR CMC Химитэй, гэмтэлтэй үсний багц - Amos Profesional",
+      "price": 300000,
+      "category": "Багц бүтээгдэхүүн",
+      "url": "https://amosprofessional.mn/products/578361",
+      "image": "Products/05 REPAIR CMC Химитэй, гэмтэлтэй үсний багц - Amos Profesional.jpg"
+    },
+    {
+      "id": 578359,
+      "name": "05 REPAIR CICA Хэт гэмтэлтэй үсний үзүүрийн ойл - Amos Professional",
+      "price": 79000,
+      "category": "05 Гэмтэлтэй үс арчилгаа",
+      "url": "https://amosprofessional.mn/products/578359",
+      "image": "Products/05 REPAIR CMC Химитэй, гэмтэлтэй үсний багц - Amos Profesional.jpg"
+    },
+    {
+      "id": 578357,
+      "name": "05 REPAIR CICA Хэт гэмтэлтэй үсний цацдаг уураг - Amos Professional",
+      "price": 79000,
+      "category": "05 Гэмтэлтэй үс арчилгаа",
+      "url": "https://amosprofessional.mn/products/578357",
+      "image": "Products/05 REPAIR CMC Химитэй, гэмтэлтэй үсний багц - Amos Profesional.jpg"
+    },
+    {
+      "id": 578356,
+      "name": "05 REPAIR CICA Хэт гэмтэлтэй үсний тэжээл - Amos Professional",
+      "price": 79000,
+      "category": "05 Гэмтэлтэй үс арчилгаа",
+      "url": "https://amosprofessional.mn/products/578356",
+      "image": "Products/05 REPAIR CMC Химитэй, гэмтэлтэй үсний багц - Amos Profesional.jpg"
+    },
+    {
+      "id": 578354,
+      "name": "05 REPAIR CICA Хэт гэмтэлтэй үсний шампунь - Amos Professional",
+      "price": 85000,
+      "category": "05 Гэмтэлтэй үс арчилгаа",
+      "url": "https://amosprofessional.mn/products/578354",
+      "image": "Products/05 REPAIR CMC Химитэй, гэмтэлтэй үсний багц - Amos Profesional.jpg"
+    },
+    {
+      "id": 578350,
+      "name": "02 PURE SMART Тослог хаг, загатнаж хөлөрдөг, эвгүй үнэр ялгардаг хуйхны багц - Amos Professional",
+      "price": 157000,
+      "category": "Багц бүтээгдэхүүн",
+      "url": "https://amosprofessional.mn/products/578350",
+      "image": "Products/02 PURE SMART Тослог хаг, загатнаж хөлөрдөг, эвгүй үнэр ялгардаг хуйхны шампунь.webp"
+    },
+    {
+      "id": 578349,
+      "name": "02 PURE SMART Тослогтдог, жижиг бужигнасан хаганд зориулсан багц - Amos Professional",
+      "price": 157000,
+      "category": "Багц бүтээгдэхүүн",
+      "url": "https://amosprofessional.mn/products/578349",
+      "image": "Products/02 PURE SMART Тослогтдог, жижиг бужигнасан хаганд зориулсан багц - Amos Professional.jpg"
+    },
+    {
+      "id": 578339,
+      "name": "02 PURE SMART Хуурайшдаг, загатнаа ихтэй, том хавтгай хаганд зориулсан шампунь 5гр 10 ширхэг - Amos Professional",
+      "price": 30000,
+      "category": "02 Scalp хуйхны эрүүл мэнд",
+      "url": "https://amosprofessional.mn/products/578339",
+      "image": "Products/02 PURE SMART Хуурайшдаг, загатнаа ихтэй, том хавтгай хаганд зориулсан шампунь.webp"
+    },
+    {
+      "id": 578338,
+      "name": "02 PURE SMART Тослогтдог, жижиг бужигнасан хаганд зориулсан шампунь 5гр 10 ширхэг  - Amos Professional",
+      "price": 30000,
+      "category": "02 Scalp хуйхны эрүүл мэнд",
+      "url": "https://amosprofessional.mn/products/578338",
+      "image": "Products/02 PURE SMART Тослогтдог, жижиг бужигнасан хаганд зориулсан шампунь 5гр 10 ширхэг.jpg"
+    },
+    {
+      "id": 578337,
+      "name": "02 PURE SMART Салдаггүй хагны эсрэг гуужуулагч - Amos Professional",
+      "price": 31000,
+      "category": "02 Scalp хуйхны эрүүл мэнд",
+      "url": "https://amosprofessional.mn/products/578337",
+      "image": "Products/02 PURE SMART Салдаггүй хагны эсрэг гуужуулагч -.webp"
+    },
+    {
+      "id": 578336,
+      "name": "02 PURE SMART Хагны эсрэг чийгшүүлж, тайвшруулах хуйхны маск - Amos Professional",
+      "price": 58000,
+      "category": "02 Scalp хуйхны эрүүл мэнд",
+      "url": "https://amosprofessional.mn/products/578336",
+      "image": "Products/02 THE GREEN TEA Үс уналтын эсрэг хуйхны маск - Amos Professiona.jpg"
+    },
+    {
+      "id": 578335,
+      "name": "02 PURE SMART Тослог хаг, загатнаж хөлөрдөг, эвгүй үнэр ялгардаг хуйхны шампунь - Amos  Professional",
+      "price": 68000,
+      "category": "02 Scalp хуйхны эрүүл мэнд",
+      "url": "https://amosprofessional.mn/products/578335",
+      "image": "Products/02 PURE SMART Тослог хаг, загатнаж хөлөрдөг, эвгүй үнэр ялгардаг хуйхны шампунь.webp"
+    },
+    {
+      "id": 578334,
+      "name": "02 PURE SMART Тослогтдог, жижиг бужигнасан хаганд зориулсан шампунь - Amos Professional",
+      "price": 68000,
+      "category": "02 Scalp хуйхны эрүүл мэнд",
+      "url": "https://amosprofessional.mn/products/578334",
+      "image": "Products/02 PURE SMART Тослогтдог, жижиг бужигнасан хаганд зориулсан багц - Amos Professional.jpg"
+    },
+    {
+      "id": 578333,
+      "name": "02 PURE SMART Хуурайшдаг, загатнаа ихтэй, том хавтгай хаганд зориулсан шампунь - Amos Professional",
+      "price": 68000,
+      "category": "02 Scalp хуйхны эрүүл мэнд",
+      "url": "https://amosprofessional.mn/products/578333",
+      "image": "Products/02 PURE SMART Хуурайшдаг, загатнаа ихтэй, том хавтгай хаганд зориулсан шампунь.webp"
+    },
+    {
+      "id": 578332,
+      "name": "02 THE GREEN TEA Үс уналтын эсрэг тослог хуйханд зориулсан шампунь 5гр 10ш - Amos Professional",
+      "price": 30000,
+      "category": "02 Scalp үс уналтын эсрэг",
+      "url": "https://amosprofessional.mn/products/578332",
+      "image": "Products/02 THE GREEN TEA Үс уналтын эсрэг тослог хуйханд зориулсан шампунь 5гр 10ш.jpg"
+    },
+    {
+      "id": 578331,
+      "name": "02 THE GREEN TEA Үс уналтын эсрэг хуурай хуйханд зориулсан шампунь 5гр 10ш - Amos Professional",
+      "price": 30000,
+      "category": "02 Scalp үс уналтын эсрэг",
+      "url": "https://amosprofessional.mn/products/578331",
+      "image": "Products/02 THE GREEN TEA Үс уналтын эсрэг хуурай хуйханд зориулсан шампунь 5гр 10ш.jpg"
+    },
+    {
+      "id": 578330,
+      "name": "02 THE GREEN TEA Тослог хуйханд зориулсан үс уналтын эсрэг багц - Amos Professional",
+      "price": 329000,
+      "category": "Багц бүтээгдэхүүн",
+      "url": "https://amosprofessional.mn/products/578330",
+      "image": "Products/06 RENEW CAMELLIA Тослог хуйханд зориулсан хуйхны хөгшрөлтийн эсрэг багц - Amos Profesional.jpg"
+    },
+    {
+      "id": 578327,
+      "name": "02 THE GREEN TEA Эмзэг, мэдрэмтгий хуйханд зориулсан багц - Amos Professional",
+      "price": 329000,
+      "category": "Багц бүтээгдэхүүн",
+      "url": "https://amosprofessional.mn/products/578327",
+      "image": "Products/02 THE GREEN TEA Эмзэг, мэдрэмтгий хуйханд зориулсан багц - Amos Professional.jpg"
+    },
+    {
+      "id": 578325,
+      "name": "02 THE GREEN TEA Эмзэг, мэдрэмтгий хуйханд зориулсан шампунь - Amos Professional",
+      "price": 95000,
+      "category": "02 Scalp үс уналтын эсрэг",
+      "url": "https://amosprofessional.mn/products/578325",
+      "image": "Products/02 THE GREEN TEA Эмзэг, мэдрэмтгий хуйханд зориулсан багц - Amos Professional.jpg"
+    },
+    {
+      "id": 578324,
+      "name": "02 THE GREEN TEA Үс уналтын эсрэг хуйхны маск - Amos Professional",
+      "price": 84000,
+      "category": "02 Scalp үс уналтын эсрэг",
+      "url": "https://amosprofessional.mn/products/578324",
+      "image": "Products/02 THE GREEN TEA Үс уналтын эсрэг хуйхны маск - Amos Professiona.jpg"
+    },
+    {
+      "id": 578303,
+      "name": "02 THE GREEN TEA Үс уналтын эсрэг хуйхны тоник - Amos Professional",
+      "price": 75000,
+      "category": "02 Scalp үс уналтын эсрэг",
+      "url": "https://amosprofessional.mn/products/578303",
+      "image": "Products/02 THE GREEN TEA Үс уналтын эсрэг хуйхны маск - Amos Professiona.jpg"
+    },
+    {
+      "id": 578302,
+      "name": "02 THE GREEN TEA Үс уналтын эсрэг хуйхны серум - Amos Professional",
+      "price": 75000,
+      "category": "02 Scalp үс уналтын эсрэг",
+      "url": "https://amosprofessional.mn/products/578302",
+      "image": "Products/02 THE GREEN TEA Үс уналтын эсрэг хуйхны маск - Amos Professiona.jpg"
+    },
+    {
+      "id": 578301,
+      "name": "02 GREEN TEA Үс хөвсийлгөж уг босгох мист - Amos Professional",
+      "price": 54000,
+      "category": "02 Scalp үс уналтын эсрэг",
+      "url": "https://amosprofessional.mn/products/578301",
+      "image": "Products/02 GREEN TEA Үс хөвсийлгөж уг босгох ми.jpg"
+    },
+    {
+      "id": 578104,
+      "name": "05 REPAIR CICA Хэт гэмтэлтэй үсний багц - Amos Professional",
+      "price": 322000,
+      "category": "Багц бүтээгдэхүүн",
+      "url": "https://amosprofessional.mn/products/578104",
+      "image": "Products/05 REPAIR CMC Химитэй, гэмтэлтэй үсний багц - Amos Profesional.jpg"
+    },
+    {
+      "id": 577985,
+      "name": "02 PURE SMART Хуурайшдаг, загатнаа ихтэй, том хавтгай хаганд зориулсан багц - Amos Professional",
+      "price": 157000,
+      "category": "Багц бүтээгдэхүүн",
+      "url": "https://amosprofessional.mn/products/577985",
+      "image": "Products/02 PURE SMART Хуурайшдаг, загатнаа ихтэй, том хавтгай хаганд зориулсан багц.jpg"
+    },
+    {
+      "id": 577948,
+      "name": "02 THE GREEN TEA Энгийн болон хуурай үс уналттай хуйханд зориулсан багц- AMOS PROFESSIONAL",
+      "price": 329000,
+      "category": "Багц бүтээгдэхүүн",
+      "url": "https://amosprofessional.mn/products/577948",
+      "image": "Products/02 THE GREEN TEA Эмзэг, мэдрэмтгий хуйханд зориулсан багц - Amos Professional.jpg"
     }
   ]
 }
-
-
