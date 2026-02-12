@@ -322,13 +322,14 @@ function renderProductFilters(products) {
 
   // Extract unique prefixes and sort them
   const prefixes = new Set();
-  const prefixLabels = {};
+  let hasOther = false;
   
   products.forEach((product) => {
     const prefix = getProductPrefix(product.category);
     if (prefix) {
       prefixes.add(prefix);
-      prefixLabels[prefix] = product.category.split(' ').slice(1).join(' ');
+    } else {
+      hasOther = true;
     }
   });
 
@@ -352,6 +353,15 @@ function renderProductFilters(products) {
     filtersContainer.appendChild(btn);
   });
 
+  // Add "Бусад" (Other) button if there are products without numeric prefix
+  if (hasOther) {
+    const otherBtn = document.createElement("button");
+    otherBtn.className = "filter-btn";
+    otherBtn.dataset.filter = "other";
+    otherBtn.textContent = "Бусад";
+    filtersContainer.appendChild(otherBtn);
+  }
+
   filtersContainer.innerHTML += "</div>";
 
   // Add filter event listeners
@@ -370,6 +380,10 @@ function renderProductFilters(products) {
 function filterProducts(prefix) {
   if (prefix === "all") {
     productsCache = allProductsCache;
+  } else if (prefix === "other") {
+    productsCache = allProductsCache.filter((product) => {
+      return getProductPrefix(product.category) === null;
+    });
   } else {
     productsCache = allProductsCache.filter((product) => {
       return getProductPrefix(product.category) === prefix;
