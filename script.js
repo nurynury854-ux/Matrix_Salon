@@ -344,7 +344,6 @@ function renderProductsPage(page) {
         <h4>${product.name}</h4>
         <div class="product-price">${priceDisplay} ₮</div>
       </div>
-      <button type="button" class="ghost-btn product-link">Дэлгэрэнгүй</button>
     `;
     productsGrid.appendChild(productCard);
   });
