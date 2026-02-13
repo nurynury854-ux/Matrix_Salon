@@ -161,13 +161,40 @@ a {
   border: 1px solid rgba(100, 211, 154, 0.2);
   border-radius: 24px;
   padding: 2rem;
+  max-width: 420px;
+  width: 100%;
+  justify-self: center;
 }
 
-.hero-card ul {
-  list-style: none;
-  margin: 1.2rem 0;
+.hero-card-content {
   display: grid;
-  gap: 0.6rem;
+  gap: 1rem;
+  justify-items: center;
+}
+
+.hero-feature-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  width: min(100%, 280px);
+  margin: 0 auto;
+  align-items: center;
+}
+
+.hero-feature-image {
+  display: block;
+  width: 100%;
+  aspect-ratio: 9 / 16;
+  object-fit: contain;
+  background: #000;
+  border-radius: 14px;
+  border: 1px solid rgba(100, 211, 154, 0.2);
+  margin: 0;
+}
+
+@media (max-width: 760px) {
+  .hero-feature-layout {
+    grid-template-columns: 1fr;
+  }
 }
 
 .hero-stats {
@@ -215,7 +242,7 @@ a {
   font-size: 1.2rem;
   font-weight: 700;
   color: var(--accent);
-  margin-top: 1.2rem;
+  margin-top: 2.5rem;
   margin-bottom: 0.4rem;
   padding: 0.6rem 0.9rem;
   border-radius: 16px;
@@ -419,6 +446,97 @@ a {
 .muted {
   color: var(--muted);
   font-size: 0.8rem;
+}
+
+.service-image-btn {
+  justify-self: start;
+  background: transparent;
+  border: 1px solid rgba(100, 211, 154, 0.28);
+  color: var(--accent);
+  padding: 0.4rem 0.72rem;
+  border-radius: 999px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: transform 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.service-image-btn:hover {
+  transform: translateY(-1px);
+  border-color: rgba(100, 211, 154, 0.6);
+  background: rgba(100, 211, 154, 0.08);
+}
+
+.price-card.price-group .service-image-btn {
+  margin: 0 1rem 0.9rem;
+}
+
+.service-image-modal {
+  position: fixed;
+  inset: 0;
+  display: none;
+  z-index: 10001;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.service-image-modal.is-open {
+  display: flex;
+}
+
+.service-image-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(5, 9, 8, 0.76);
+  backdrop-filter: blur(5px);
+}
+
+.service-image-modal-content {
+  position: relative;
+  z-index: 1;
+  width: min(1040px, 96vw);
+  background: var(--surface-light);
+  border: 1px solid rgba(100, 211, 154, 0.2);
+  border-radius: 18px;
+  padding: 1.2rem;
+}
+
+.service-image-modal-title {
+  margin: 0 2.2rem 0.9rem 0;
+  color: var(--accent);
+  font-size: 1.05rem;
+}
+
+.service-image-modal-row {
+  display: flex;
+  gap: 0.8rem;
+  overflow-x: auto;
+  padding-bottom: 0.2rem;
+}
+
+.service-image-modal-item {
+  width: min(300px, 42vw);
+  height: auto;
+  border-radius: 12px;
+  border: 1px solid rgba(100, 211, 154, 0.2);
+  background: #000;
+  object-fit: cover;
+  flex: 0 0 auto;
+}
+
+.service-image-modal-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 1px solid rgba(100, 211, 154, 0.3);
+  background: rgba(100, 211, 154, 0.08);
+  color: var(--text);
+  font-size: 1.3rem;
+  line-height: 1;
+  cursor: pointer;
 }
 
 .alt-section {
@@ -732,6 +850,61 @@ a {
   max-width: 320px;
   border-radius: 10px;
   border: 1px solid rgba(255,255,255,0.05);
+}
+
+.video-popup-modal {
+  position: fixed;
+  inset: 0;
+  display: none;
+  z-index: 10000;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.video-popup-modal.is-open {
+  display: flex;
+}
+
+.video-popup-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(5, 9, 8, 0.78);
+  backdrop-filter: blur(4px);
+}
+
+.video-popup-content {
+  position: relative;
+  z-index: 1;
+  width: min(880px, 94vw);
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(100, 211, 154, 0.25);
+  background: #000;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.65);
+}
+
+.video-popup-player {
+  display: block;
+  width: 100%;
+  max-height: 80vh;
+  background: #000;
+}
+
+.video-popup-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 2;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: rgba(0, 0, 0, 0.55);
+  color: #fff;
+  font-size: 1.35rem;
+  line-height: 1;
+  cursor: pointer;
 }
 
 @media (max-width: 480px) {

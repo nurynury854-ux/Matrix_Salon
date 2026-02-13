@@ -31,6 +31,111 @@ const timeOptions = [
   "19:00",
 ];
 
+const SERVICE_IMAGE_MAP = {
+  "будаг": ["files/Budag.jpeg"],
+  "оффис колор": ["files/OfficeColor.png"],
+  "холливуд ороолт": ["files/HollywoodOroolt.jpeg"],
+  "элегант ороолт": ["files/EleganceOroolt.jpeg"],
+  "оффис ороолт": ["files/OfficeOroolt.jpeg"],
+  "эмчилгээний хими": [
+    "files/EmchilgeeHimi.jpeg",
+    "files/EmchilgeeHimi1.jpg",
+    "files/EmchilgeeHimi2.jpg",
+  ],
+};
+
+let serviceImageModal;
+let serviceImageModalTitle;
+let serviceImageModalRow;
+
+function normalizeServiceName(name) {
+  return String(name || "")
+    .toLowerCase()
+    .replace(/[ё]/g, "е")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function getServiceImages(serviceName) {
+  const key = normalizeServiceName(serviceName);
+  return SERVICE_IMAGE_MAP[key] || [];
+}
+
+function createServiceImageButtonMarkup(serviceName) {
+  const images = getServiceImages(serviceName);
+  if (images.length === 0) return "";
+  return `<button class="service-image-btn" type="button" data-service="${encodeURIComponent(serviceName)}">Зураг харах</button>`;
+}
+
+function ensureServiceImageModal() {
+  if (serviceImageModal) return;
+
+  serviceImageModal = document.createElement("div");
+  serviceImageModal.className = "service-image-modal";
+  serviceImageModal.setAttribute("aria-hidden", "true");
+  serviceImageModal.setAttribute("role", "dialog");
+  serviceImageModal.innerHTML = `
+    <div class="service-image-modal-backdrop" data-service-image-close></div>
+    <div class="service-image-modal-content" role="document">
+      <button class="service-image-modal-close" type="button" aria-label="Close" data-service-image-close>×</button>
+      <h3 class="service-image-modal-title"></h3>
+      <div class="service-image-modal-row"></div>
+    </div>
+  `;
+
+  document.body.appendChild(serviceImageModal);
+  serviceImageModalTitle = serviceImageModal.querySelector(".service-image-modal-title");
+  serviceImageModalRow = serviceImageModal.querySelector(".service-image-modal-row");
+
+  serviceImageModal.addEventListener("click", (event) => {
+    const target = event.target;
+    if (target?.matches("[data-service-image-close]")) {
+      closeServiceImageModal();
+    }
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && serviceImageModal?.classList.contains("is-open")) {
+      closeServiceImageModal();
+    }
+  });
+}
+
+function closeServiceImageModal() {
+  if (!serviceImageModal) return;
+  serviceImageModal.classList.remove("is-open");
+  serviceImageModal.setAttribute("aria-hidden", "true");
+  if (serviceImageModalRow) {
+    serviceImageModalRow.innerHTML = "";
+  }
+}
+
+function openServiceImageModal(serviceName) {
+  const images = getServiceImages(serviceName);
+  if (images.length === 0) return;
+
+  ensureServiceImageModal();
+
+  if (serviceImageModalTitle) {
+    serviceImageModalTitle.textContent = serviceName;
+  }
+
+  if (serviceImageModalRow) {
+    serviceImageModalRow.innerHTML = "";
+    images.forEach((src, index) => {
+      const img = document.createElement("img");
+      img.className = "service-image-modal-item";
+      img.src = src;
+      img.alt = `${serviceName} зураг ${index + 1}`;
+      img.loading = "lazy";
+      serviceImageModalRow.appendChild(img);
+    });
+  }
+
+  serviceImageModal.classList.add("is-open");
+  serviceImageModal.setAttribute("aria-hidden", "false");
+}
+
 function formatRange(min, max) {
   if (min === undefined || min === null) {
     // Single price mode
@@ -86,6 +191,7 @@ function renderPricing(pricingData) {
 
         // Render services in subcategory
         subcategory.services.forEach((service) => {
+          const imageButtonMarkup = createServiceImageButtonMarkup(service.name);
           if (service.variants) {
             // Service with variants - collapsible
             const groupId = `group-${service.name.replace(/\s+/g, "-")}`;
@@ -116,6 +222,7 @@ function renderPricing(pricingData) {
                 <div class="price">${priceDisplay}</div>
                 <div class="muted">${service.variants.length} сонголт</div>
               </button>
+              ${imageButtonMarkup}
             `;
             subcategoryContainer.appendChild(groupCard);
 
@@ -153,6 +260,7 @@ function renderPricing(pricingData) {
               <h4>${service.name}</h4>
               <div class="price">${priceText}</div>
               <div class="muted">Үнэ</div>
+              ${imageButtonMarkup}
             `;
             subcategoryContainer.appendChild(card);
 
@@ -171,6 +279,7 @@ function renderPricing(pricingData) {
     } else {
       // Old structure with services or variants
       category.services.forEach((service) => {
+        const imageButtonMarkup = createServiceImageButtonMarkup(service.name);
         if (service.variants) {
           // Service with variants - collapsible
           const groupId = `group-${service.name.replace(/\s+/g, "-")}`;
@@ -201,6 +310,7 @@ function renderPricing(pricingData) {
               <div class="price">${priceDisplay}</div>
               <div class="muted">${service.variants.length} сонголт</div>
             </button>
+            ${imageButtonMarkup}
           `;
           pricingGrid.appendChild(groupCard);
 
@@ -238,6 +348,7 @@ function renderPricing(pricingData) {
             <h4>${service.name}</h4>
             <div class="price">${priceText}</div>
             <div class="muted">Үнэ</div>
+            ${imageButtonMarkup}
           `;
           pricingGrid.appendChild(card);
 
@@ -260,6 +371,13 @@ function renderPricing(pricingData) {
 
   document.querySelectorAll(".subcategory-toggle").forEach((btn) => {
     btn.addEventListener("click", toggleSubcategory);
+  });
+
+  document.querySelectorAll(".service-image-btn").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const serviceName = decodeURIComponent(btn.dataset.service || "");
+      openServiceImageModal(serviceName);
+    });
   });
 }
 
@@ -559,10 +677,12 @@ if (document.getElementById("products-grid")) {
   loadProducts();
 }
 
-// Initialize booking calendar and time slots
-renderDayStrip(new Date());
-renderTimeSlots();
-initDateInput();
+// Initialize booking calendar and time slots (only on pages that contain booking UI)
+if (dayStrip && timeSlots && dateInput) {
+  renderDayStrip(new Date());
+  renderTimeSlots();
+  initDateInput();
+}
 
 // Team modal functionality - only initialize if elements exist on this page
 const teamModal = document.getElementById("team-modal");
@@ -609,26 +729,69 @@ if (teamButtons.length > 0 && teamModal) {
   });
 }
 
-// Video toggle support for stylist profiles
-document.querySelectorAll('.video-toggle').forEach((btn) => {
-  const videoSrc = btn.dataset.video?.trim();
-  const videoEl = btn.parentElement?.querySelector('.profile-video');
-  if (!videoSrc) {
-    // hide button if no video source configured yet
-    btn.style.display = 'none';
-    return;
+// Video popup support for stylist profiles
+const videoButtons = document.querySelectorAll(".video-toggle");
+
+if (videoButtons.length > 0) {
+  const videoModal = document.createElement("div");
+  videoModal.className = "video-popup-modal";
+  videoModal.setAttribute("aria-hidden", "true");
+  videoModal.setAttribute("role", "dialog");
+  videoModal.innerHTML = `
+    <div class="video-popup-backdrop" data-video-close></div>
+    <div class="video-popup-content" role="document">
+      <button class="video-popup-close" type="button" aria-label="Close" data-video-close>×</button>
+      <video class="video-popup-player" controls playsinline preload="metadata"></video>
+    </div>
+  `;
+  document.body.appendChild(videoModal);
+
+  const videoPlayer = videoModal.querySelector(".video-popup-player");
+
+  function closeVideoModal() {
+    videoModal.classList.remove("is-open");
+    videoModal.setAttribute("aria-hidden", "true");
+    if (videoPlayer) {
+      videoPlayer.pause();
+      videoPlayer.removeAttribute("src");
+      videoPlayer.load();
+    }
   }
 
-  btn.addEventListener('click', () => {
-    if (!videoEl) return;
-    if (videoEl.style.display === 'none' || videoEl.style.display === '') {
-      if (!videoEl.src) videoEl.src = videoSrc;
-      videoEl.style.display = 'block';
-      btn.textContent = 'Хаах';
-    } else {
-      videoEl.pause();
-      videoEl.style.display = 'none';
-      btn.textContent = 'Видео';
+  function openVideoModal(videoSrc) {
+    if (!videoPlayer || !videoSrc) return;
+    videoPlayer.src = videoSrc;
+    videoModal.classList.add("is-open");
+    videoModal.setAttribute("aria-hidden", "false");
+
+    const playPromise = videoPlayer.play();
+    if (playPromise && typeof playPromise.catch === "function") {
+      playPromise.catch(() => {
+        // If autoplay is blocked, keep modal open and let user press play.
+      });
+    }
+  }
+
+  videoButtons.forEach((btn) => {
+    const videoSrc = btn.dataset.video?.trim();
+    if (!videoSrc) {
+      btn.style.display = "none";
+      return;
+    }
+
+    btn.addEventListener("click", () => openVideoModal(videoSrc));
+  });
+
+  videoModal.addEventListener("click", (event) => {
+    const target = event.target;
+    if (target?.matches("[data-video-close]")) {
+      closeVideoModal();
     }
   });
-});
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && videoModal.classList.contains("is-open")) {
+      closeVideoModal();
+    }
+  });
+}
