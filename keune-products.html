@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Үйлчилгээ | Matrix Eco Salon</title>
+    <title>Keune Бүтээгдэхүүн | Matrix Eco Salon</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
@@ -35,12 +35,37 @@
     </header>
 
     <main>
-      <section id="services" class="section">
+      <!-- Brand Hero -->
+      <section class="section keune-hero">
+        <div class="container">
+          <div class="pill">Keune • Premium Hair Care</div>
+          <h2>Keune Бүтээгдэхүүн</h2>
+          <p>Голланд улсад 1922 оноос хойш үйлдвэрлэгдсэн мэргэжлийн үс арчилгааны дээд зэрэглэлийн бүтээгдэхүүн.</p>
+          <div class="keune-brand-strip">
+            <img src="Keune/about1.jpeg" alt="Keune Brand" class="keune-brand-img" />
+            <img src="Keune/about2.jpeg" alt="Keune Products" class="keune-brand-img" />
+            <img src="Keune/about3.jpeg" alt="Keune Quality" class="keune-brand-img" />
+          </div>
+        </div>
+      </section>
+
+      <!-- Product Cards -->
+      <section class="section">
         <div class="container">
           <div class="section-title">
-            <h2>Үнийн жагсаалт</h2>
+            <h2>Бүтээгдэхүүний шугам</h2>
+            <p>Таны үсний хэрэгцээнд тохирсон 12 төрлийн бүтээгдэхүүн</p>
           </div>
-          <div id="pricing-grid" class="pricing-grid"></div>
+          <div id="keune-filters" class="products-filters"></div>
+          <div id="keune-grid" class="keune-grid"></div>
+        </div>
+      </section>
+
+      <!-- Overall Products Poster -->
+      <section class="section keune-poster">
+        <div class="container">
+          <h3>Бүтээгдэхүүний ерөнхий танилцуулга</h3>
+          <img src="Keune/overallKeuneProducts.png" alt="Keune бүтээгдэхүүний танилцуулга" loading="lazy" />
         </div>
       </section>
     </main>
@@ -55,7 +80,6 @@
     <button id="matrix-chat-toggle"
             aria-label="Open Matrix Chat"
             aria-expanded="false">
-      
       <img src="https://i.imgur.com/nIMY0P1.png" 
            alt="Matrix Logo" 
            style="width: 100%; height: 100%; object-fit: contain; padding: 6px;">
@@ -63,7 +87,6 @@
 
     <div id="matrix-chatbot-container"
          style="display: none;">
-         
       <iframe src="https://matrix-chatbot-seven.vercel.app/"
               width="100%" height="100%" frameborder="0"
               style="border-radius: 16px;"
@@ -71,7 +94,6 @@
     </div>
 
     <style>
-      /* 1. Base Button Styles */
       #matrix-chat-toggle {
         position: fixed;
         bottom: 20px;
@@ -80,19 +102,17 @@
         width: 80px;
         height: 80px;
         border-radius: 50%;
-        background: #000000; /* Brand Black */
+        background: #000000;
         border: 2px solid #333;
         box-shadow: 0 4px 12px rgba(0,0,0,0.5);
         cursor: pointer;
         overflow: hidden;
         padding: 0;
-        transition: all 0.3s ease; /* Smooth animation for everything */
+        transition: all 0.3s ease;
         display: flex;
         align-items: center;
         justify-content: center;
       }
-
-      /* 2. Container Styles */
       #matrix-chatbot-container {
         position: fixed;
         bottom: 100px;
@@ -107,29 +127,18 @@
         overflow: hidden;
         border: 1px solid #333;
       }
-
-      /* 3. HOVER EFFECT (When closed) */
-      /* Scale up to 1.1 size */
       #matrix-chat-toggle:hover {
         transform: scale(1.1);
-        box-shadow: 0 0 15px rgba(100, 211, 154, 0.6); /* Green Glow */
+        box-shadow: 0 0 15px rgba(100, 211, 154, 0.6);
         border-color: #64d39a;
       }
-
-      /* 4. OPEN STATE (When chat is active) */
-      /* Rotate 45 degrees */
       #matrix-chat-toggle.is-open {
         transform: rotate(45deg);
-        border-color: #64d39a; /* Keep green border while open */
+        border-color: #64d39a;
       }
-
-      /* 5. OPEN + HOVER STATE (Fixing the bug) */
-      /* Keep the 45deg rotation AND add the scale */
       #matrix-chat-toggle.is-open:hover {
         transform: rotate(45deg) scale(1.1);
       }
-      
-      /* Mobile Responsiveness */
       @media (max-width: 480px) {
         #matrix-chatbot-container {
           width: calc(100% - 32px) !important;
@@ -144,19 +153,10 @@
       (function() {
         const container = document.getElementById('matrix-chatbot-container');
         const btn = document.getElementById('matrix-chat-toggle');
-
-        if (!container || !btn) {
-          console.error('Matrix chatbot elements not found');
-          return;
-        }
-
+        if (!container || !btn) return;
         btn.addEventListener('click', function() {
           const isHidden = container.style.display === 'none' || container.style.display === '';
-          
-          // Toggle the Chat Window
           container.style.display = isHidden ? 'block' : 'none';
-          
-          // Toggle the CSS class 'is-open' (This handles the rotation now)
           if (isHidden) {
             btn.classList.add('is-open');
             btn.setAttribute('aria-expanded', 'true');

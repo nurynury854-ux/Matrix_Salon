@@ -795,3 +795,139 @@ if (videoButtons.length > 0) {
     }
   });
 }
+
+// ─── Keune Products ─────────────────────────────────────────
+(function initKeune() {
+  const keuneGrid = document.getElementById("keune-grid");
+  const keuneFilters = document.getElementById("keune-filters");
+  if (!keuneGrid) return; // Not on the Keune page
+
+  let keuneAll = [];
+  let keuneFiltered = [];
+
+  // Detail modal (created once)
+  let keuneModal = null;
+
+  function ensureKeuneModal() {
+    if (keuneModal) return;
+    keuneModal = document.createElement("div");
+    keuneModal.className = "keune-modal";
+    keuneModal.setAttribute("aria-hidden", "true");
+    keuneModal.innerHTML = `
+      <div class="keune-modal-backdrop" data-keune-close></div>
+      <div class="keune-modal-body">
+        <button class="keune-modal-close" type="button" aria-label="Close" data-keune-close>×</button>
+        <img src="" alt="" />
+      </div>
+    `;
+    document.body.appendChild(keuneModal);
+
+    keuneModal.addEventListener("click", (e) => {
+      if (e.target.matches("[data-keune-close]")) closeKeuneModal();
+    });
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && keuneModal?.classList.contains("is-open")) closeKeuneModal();
+    });
+  }
+
+  function openKeuneModal(src, alt) {
+    ensureKeuneModal();
+    const img = keuneModal.querySelector(".keune-modal-body img");
+    img.src = src;
+    img.alt = alt;
+    keuneModal.classList.add("is-open");
+    keuneModal.setAttribute("aria-hidden", "false");
+  }
+
+  function closeKeuneModal() {
+    if (!keuneModal) return;
+    keuneModal.classList.remove("is-open");
+    keuneModal.setAttribute("aria-hidden", "true");
+  }
+
+  // Brand image lightbox
+  document.querySelectorAll(".keune-brand-img").forEach((img) => {
+    img.addEventListener("click", () => openKeuneModal(img.src, img.alt || "Keune"));
+  });
+
+  // Category filters
+  function renderKeuneFilters() {
+    if (!keuneFilters) return;
+    const categories = [...new Set(keuneAll.map((p) => p.category))].sort();
+    keuneFilters.innerHTML = "";
+
+    const allBtn = document.createElement("button");
+    allBtn.className = "filter-btn active";
+    allBtn.textContent = "Бүгд";
+    allBtn.addEventListener("click", () => {
+      keuneFiltered = keuneAll;
+      renderKeuneGrid();
+      setActiveFilter(allBtn);
+    });
+    keuneFilters.appendChild(allBtn);
+
+    categories.forEach((cat) => {
+      const btn = document.createElement("button");
+      btn.className = "filter-btn";
+      btn.textContent = cat;
+      btn.addEventListener("click", () => {
+        keuneFiltered = keuneAll.filter((p) => p.category === cat);
+        renderKeuneGrid();
+        setActiveFilter(btn);
+      });
+      keuneFilters.appendChild(btn);
+    });
+  }
+
+  function setActiveFilter(activeBtn) {
+    keuneFilters.querySelectorAll(".filter-btn").forEach((b) => b.classList.remove("active"));
+    activeBtn.classList.add("active");
+  }
+
+  // Product grid
+  function renderKeuneGrid() {
+    keuneGrid.innerHTML = "";
+
+    keuneFiltered.forEach((product) => {
+      const card = document.createElement("div");
+      card.className = "keune-card";
+
+      const hasDetail = !!product.detailImage;
+
+      card.innerHTML = `
+        <img class="keune-card-img" src="${product.image}" alt="${product.name}"
+             onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22260%22 height=%22260%22%3E%3Crect fill=%22%23121f1a%22 width=%22260%22 height=%22260%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-size=%2214%22 fill=%22%2364d39a%22 text-anchor=%22middle%22 dy=%22.3em%22%3EKeune%3C/text%3E%3C/svg%3E'" />
+        <div class="keune-card-body">
+          <span class="keune-card-cat">${product.category}</span>
+          <h4>${product.name}</h4>
+          <p class="keune-card-desc">${product.description}</p>
+          ${hasDetail ? '<span class="keune-card-badge">Дэлгэрэнгүй харах →</span>' : ""}
+        </div>
+      `;
+
+      if (hasDetail) {
+        card.addEventListener("click", () => openKeuneModal(product.detailImage, product.name + " дэлгэрэнгүй"));
+      }
+
+      keuneGrid.appendChild(card);
+    });
+  }
+
+  // Load data
+  async function loadKeuneProducts() {
+    try {
+      const res = await fetch("data/keune-products.json");
+      if (!res.ok) throw new Error("Failed to load Keune products");
+      const data = await res.json();
+      keuneAll = Array.isArray(data.products) ? data.products : [];
+      keuneFiltered = keuneAll;
+      renderKeuneFilters();
+      renderKeuneGrid();
+    } catch (err) {
+      console.error("Error loading Keune products:", err);
+      keuneGrid.innerHTML = '<p style="text-align:center;color:var(--muted);">Бүтээгдэхүүнийг ачаалахад алдаа гарлаа.</p>';
+    }
+  }
+
+  loadKeuneProducts();
+})();

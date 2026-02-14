@@ -1,0 +1,100 @@
+{
+  "products": [
+    {
+      "id": "absoluteVolume",
+      "name": "Absolute Volume",
+      "category": "Styling",
+      "description": "Нарийн, гонзгой үстэй хүмүүст зориулсан үсний хэмжээг нэмэгдүүлэх шампунь, кондиционер болон маск.",
+      "image": "Keune/KeuneProducts/absoluteVolume.png",
+      "detailImage": "Keune/AboutProducts/absoluteVolumeMore.jpeg"
+    },
+    {
+      "id": "colorBrillianz",
+      "name": "Color Brillianz",
+      "category": "Color Care",
+      "description": "Будсан үсний өнгийг хамгаалж, тод гялалзсан байдлыг удаан хадгална.",
+      "image": "Keune/KeuneProducts/colorBrillianz.png",
+      "detailImage": "Keune/AboutProducts/colorBrillianzMore.jpeg"
+    },
+    {
+      "id": "curlControl",
+      "name": "Curl Control",
+      "category": "Styling",
+      "description": "Буржгар үсийг зөөлрүүлж, тодорхой хэлбэртэй болгоно. Үсний чийгшлийг хадгалж, сарнихаас хамгаална.",
+      "image": "Keune/KeuneProducts/curlControl.png",
+      "detailImage": "Keune/AboutProducts/curlControlMore.jpeg"
+    },
+    {
+      "id": "dermaActivate",
+      "name": "Derma Activate",
+      "category": "Scalp Care",
+      "description": "Үс унахыг багасгаж, үсний ургалтыг идэвхжүүлнэ. Хуйх руу шим тэжээл нэмэгдүүлнэ.",
+      "image": "Keune/KeuneProducts/dermaActivate.png",
+      "detailImage": "Keune/AboutProducts/dermaActivateMore.jpeg"
+    },
+    {
+      "id": "dermaExfoliate",
+      "name": "Derma Exfoliate",
+      "category": "Scalp Care",
+      "description": "Хуйхны үхсэн эсийг арилгаж, цэвэрлэнэ. Хуйхыг эрүүл байлгаж, үсний ургалтад тусална.",
+      "image": "Keune/KeuneProducts/dermaExfoliate.png",
+      "detailImage": "Keune/AboutProducts/dermaExfoliateMore.png"
+    },
+    {
+      "id": "dermaRegulate",
+      "name": "Derma Regulate",
+      "category": "Scalp Care",
+      "description": "Тосолдог хуйхыг тэнцвэржүүлж, хуйхны илүүдэл тосыг зохицуулна.",
+      "image": "Keune/KeuneProducts/dermaRegulate.png",
+      "detailImage": "Keune/AboutProducts/dermaRegulateMore.png"
+    },
+    {
+      "id": "keratinSmooth",
+      "name": "Keratin Smooth",
+      "category": "Treatment",
+      "description": "Кератины тусламжтай үсийг гөлгөр, зөөлөн болгоно. Үсний бүтцийг сэргээж, гялалзуулна.",
+      "image": "Keune/KeuneProducts/keratinSmooth.png",
+      "detailImage": "Keune/AboutProducts/keratinSmoothMore.jpeg"
+    },
+    {
+      "id": "miracleElixir",
+      "name": "Miracle Elixir",
+      "category": "Treatment",
+      "description": "Кератин, провитамин B5 агуулсан олон үйлдэлт гайхамшигт эликсир. Үсийг гүнзгий тэжээнэ.",
+      "image": "Keune/KeuneProducts/miracleElixir.png",
+      "detailImage": null
+    },
+    {
+      "id": "satinOil",
+      "name": "Satin Oil",
+      "category": "Treatment",
+      "description": "Хөнгөн тосон арчилгаа нь үсийг гялалзуулж, зөөлрүүлнэ. Торгон мэт гөлгөр болгоно.",
+      "image": "Keune/KeuneProducts/satinOil.png",
+      "detailImage": "Keune/AboutProducts/satinOilMore.jpeg"
+    },
+    {
+      "id": "sunShield",
+      "name": "Sun Shield",
+      "category": "Protection",
+      "description": "Нарны хэт ягаан туяаснаас үсийг хамгаалж, өнгийг хадгална. Зуны улиралд тохиромжтой.",
+      "image": "Keune/KeuneProducts/sunShield.png",
+      "detailImage": "Keune/AboutProducts/sunShieldMore.jpeg"
+    },
+    {
+      "id": "tintaColorCare",
+      "name": "Tinta Color Care",
+      "category": "Color Care",
+      "description": "Будсан үсний өнгийг сэргээж, тод байлгана. Гүн чийгшүүлж, үсийг зөөлрүүлнэ.",
+      "image": "Keune/KeuneProducts/tintaColorCare.png",
+      "detailImage": null
+    },
+    {
+      "id": "vitalNutrition",
+      "name": "Vital Nutrition",
+      "category": "Treatment",
+      "description": "Хуурай, гэмтсэн үсийг гүнзгий тэжээж, чийгшүүлнэ. Үсний бүтцийг сэргээнэ.",
+      "image": "Keune/KeuneProducts/vitalNutrition.png",
+      "detailImage": "Keune/AboutProducts/vitalNutritionMore.jpeg"
+    }
+  ]
+}

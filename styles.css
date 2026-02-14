@@ -1142,6 +1142,281 @@ a {
   cursor: pointer;
 }
 
+/* ── Nav Dropdown ── */
+.nav-dropdown {
+  position: relative;
+}
+
+.nav-dropdown > .nav-dropdown-label {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  color: var(--muted);
+  transition: color 0.2s;
+}
+
+.nav-dropdown > .nav-dropdown-label:hover {
+  color: var(--accent);
+}
+
+.nav-dropdown-arrow {
+  font-size: 0.55rem;
+  transition: transform 0.25s;
+}
+
+.nav-dropdown:hover .nav-dropdown-arrow {
+  transform: rotate(180deg);
+}
+
+.nav-dropdown-menu {
+  position: absolute;
+  top: calc(100% + 0.6rem);
+  left: 50%;
+  transform: translateX(-50%);
+  min-width: 160px;
+  background: rgba(18, 31, 26, 0.96);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(100, 211, 154, 0.22);
+  border-radius: 14px;
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateX(-50%) translateY(6px);
+  transition: opacity 0.22s, visibility 0.22s, transform 0.22s;
+  z-index: 100;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
+}
+
+.nav-dropdown:hover .nav-dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+
+.nav-dropdown-menu a {
+  padding: 0.55rem 1rem;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  color: var(--muted);
+  transition: background 0.18s, color 0.18s;
+  white-space: nowrap;
+}
+
+.nav-dropdown-menu a:hover {
+  background: rgba(100, 211, 154, 0.12);
+  color: var(--accent);
+}
+
+/* ── Keune Page Styles ── */
+.keune-hero {
+  padding: 4rem 0 2rem;
+  text-align: center;
+}
+
+.keune-hero h2 {
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  margin-bottom: 0.6rem;
+}
+
+.keune-hero p {
+  color: var(--muted);
+  max-width: 600px;
+  margin: 0 auto 2rem;
+}
+
+.keune-brand-strip {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
+.keune-brand-img {
+  width: min(280px, 30vw);
+  border-radius: 16px;
+  border: 1px solid rgba(100, 211, 154, 0.15);
+  object-fit: cover;
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.keune-brand-img:hover {
+  transform: translateY(-3px) scale(1.02);
+  border-color: rgba(100, 211, 154, 0.4);
+  box-shadow: 0 16px 30px rgba(0, 0, 0, 0.35);
+}
+
+.keune-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.keune-card {
+  background: linear-gradient(160deg, rgba(100, 211, 154, 0.06), rgba(12, 20, 17, 0.75));
+  border: 1px solid rgba(100, 211, 154, 0.15);
+  border-radius: 20px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+
+.keune-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(100, 211, 154, 0.45);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+}
+
+.keune-card-img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: contain;
+  background: linear-gradient(135deg, #0d1a14, #0f1f18);
+  padding: 1.2rem;
+  transition: transform 0.4s ease;
+}
+
+.keune-card:hover .keune-card-img {
+  transform: scale(1.05);
+}
+
+.keune-card-body {
+  padding: 1.2rem 1.4rem 1.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  flex: 1;
+}
+
+.keune-card-body h4 {
+  font-size: 1.05rem;
+  color: var(--text);
+  margin: 0;
+}
+
+.keune-card-cat {
+  font-size: 0.72rem;
+  color: var(--accent);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.keune-card-desc {
+  font-size: 0.88rem;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.keune-card-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin-top: auto;
+  padding-top: 0.5rem;
+  font-size: 0.8rem;
+  color: var(--accent);
+  font-weight: 600;
+  opacity: 0;
+  transform: translateX(-4px);
+  transition: opacity 0.3s, transform 0.3s;
+}
+
+.keune-card:hover .keune-card-badge {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Keune detail modal */
+.keune-modal {
+  position: fixed;
+  inset: 0;
+  display: none;
+  z-index: 10002;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.keune-modal.is-open {
+  display: flex;
+}
+
+.keune-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(5, 9, 8, 0.82);
+  backdrop-filter: blur(8px);
+}
+
+.keune-modal-body {
+  position: relative;
+  z-index: 1;
+  max-width: min(680px, 94vw);
+  max-height: 90vh;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid rgba(100, 211, 154, 0.2);
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.6);
+  background: var(--surface);
+}
+
+.keune-modal-body img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.keune-modal-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 2;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  color: #fff;
+  font-size: 1.4rem;
+  line-height: 1;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  transition: background 0.2s;
+}
+
+.keune-modal-close:hover {
+  background: rgba(100, 211, 154, 0.3);
+}
+
+/* Keune overall poster */
+.keune-poster {
+  text-align: center;
+  padding: 2rem 0 0;
+}
+
+.keune-poster h3 {
+  margin-bottom: 1.2rem;
+  color: var(--accent);
+}
+
+.keune-poster img {
+  width: min(900px, 100%);
+  border-radius: 18px;
+  border: 1px solid rgba(100, 211, 154, 0.15);
+}
+
 @media (max-width: 900px) {
   .nav {
     display: none;
