@@ -1361,13 +1361,106 @@ a {
 .keune-modal-body {
   position: relative;
   z-index: 1;
-  max-width: min(680px, 94vw);
+  max-width: min(720px, 94vw);
   max-height: 90vh;
   border-radius: 20px;
   overflow: hidden;
   border: 1px solid rgba(100, 211, 154, 0.2);
   box-shadow: 0 30px 70px rgba(0, 0, 0, 0.6);
   background: var(--surface);
+  display: flex;
+  flex-direction: column;
+}
+
+.keune-modal-scroll {
+  overflow-y: auto;
+  max-height: 90vh;
+  scrollbar-width: thin;
+  scrollbar-color: var(--accent) transparent;
+}
+
+.keune-modal-header {
+  padding: 2rem 2rem 1rem;
+  text-align: center;
+}
+
+.keune-modal-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--accent);
+  margin-bottom: 0.5rem;
+}
+
+.keune-modal-desc {
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* Subproducts table */
+.keune-modal-subproducts {
+  padding: 0 1.5rem 1.5rem;
+}
+
+.keune-sub-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.keune-sub-table thead th {
+  text-align: left;
+  color: var(--accent);
+  font-weight: 600;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.6rem 0.75rem;
+  border-bottom: 1px solid rgba(100, 211, 154, 0.2);
+}
+
+.keune-sub-table tbody tr {
+  transition: background 0.2s;
+}
+
+.keune-sub-table tbody tr:hover {
+  background: rgba(100, 211, 154, 0.06);
+}
+
+.keune-sub-table tbody td {
+  padding: 0.65rem 0.75rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  vertical-align: middle;
+}
+
+.keune-sub-name {
+  color: #fff;
+  font-weight: 500;
+  font-size: 0.88rem;
+}
+
+.keune-sub-name-mn {
+  color: var(--muted);
+  font-size: 0.78rem;
+  margin-top: 2px;
+}
+
+.keune-sub-vol {
+  color: var(--muted);
+  white-space: nowrap;
+  font-size: 0.85rem;
+}
+
+.keune-sub-price {
+  color: var(--accent);
+  font-weight: 700;
+  white-space: nowrap;
+  font-size: 0.95rem;
+  text-align: right;
+}
+
+.keune-modal-image-wrap {
+  line-height: 0;
 }
 
 .keune-modal-body img {
@@ -1420,5 +1513,36 @@ a {
 @media (max-width: 900px) {
   .nav {
     display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .keune-modal-header {
+    padding: 1.5rem 1rem 0.75rem;
+  }
+  .keune-modal-title {
+    font-size: 1.2rem;
+  }
+  .keune-modal-subproducts {
+    padding: 0 0.75rem 1rem;
+  }
+  .keune-sub-table {
+    font-size: 0.8rem;
+  }
+  .keune-sub-table thead th {
+    font-size: 0.7rem;
+    padding: 0.5rem 0.4rem;
+  }
+  .keune-sub-table tbody td {
+    padding: 0.5rem 0.4rem;
+  }
+  .keune-sub-name {
+    font-size: 0.8rem;
+  }
+  .keune-sub-name-mn {
+    font-size: 0.7rem;
+  }
+  .keune-sub-price {
+    font-size: 0.85rem;
   }
 }

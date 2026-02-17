@@ -817,7 +817,16 @@ if (videoButtons.length > 0) {
       <div class="keune-modal-backdrop" data-keune-close></div>
       <div class="keune-modal-body">
         <button class="keune-modal-close" type="button" aria-label="Close" data-keune-close>×</button>
-        <img src="" alt="" />
+        <div class="keune-modal-scroll">
+          <div class="keune-modal-header">
+            <h3 class="keune-modal-title"></h3>
+            <p class="keune-modal-desc"></p>
+          </div>
+          <div class="keune-modal-subproducts"></div>
+          <div class="keune-modal-image-wrap">
+            <img src="" alt="" />
+          </div>
+        </div>
       </div>
     `;
     document.body.appendChild(keuneModal);
@@ -830,11 +839,84 @@ if (videoButtons.length > 0) {
     });
   }
 
+  function formatPrice(price) {
+    return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "₮";
+  }
+
+  function openKeuneDetail(product) {
+    ensureKeuneModal();
+    const title = keuneModal.querySelector(".keune-modal-title");
+    const desc = keuneModal.querySelector(".keune-modal-desc");
+    const subWrap = keuneModal.querySelector(".keune-modal-subproducts");
+    const imgWrap = keuneModal.querySelector(".keune-modal-image-wrap");
+    const img = imgWrap.querySelector("img");
+
+    title.textContent = product.name;
+    desc.textContent = product.description;
+
+    // Subproducts table
+    const subs = product.subProducts || [];
+    if (subs.length > 0) {
+      subWrap.innerHTML = `
+        <table class="keune-sub-table">
+          <thead>
+            <tr>
+              <th>Бүтээгдэхүүн</th>
+              <th>Хэмжээ</th>
+              <th>Үнэ</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${subs.map(s => `
+              <tr>
+                <td>
+                  <div class="keune-sub-name">${s.name}</div>
+                  <div class="keune-sub-name-mn">${s.nameMn}</div>
+                </td>
+                <td class="keune-sub-vol">${s.volume}</td>
+                <td class="keune-sub-price">${formatPrice(s.price)}</td>
+              </tr>
+            `).join("")}
+          </tbody>
+        </table>
+      `;
+      subWrap.style.display = "block";
+    } else {
+      subWrap.innerHTML = "";
+      subWrap.style.display = "none";
+    }
+
+    // Detail image
+    if (product.detailImage) {
+      img.src = product.detailImage;
+      img.alt = product.name + " дэлгэрэнгүй";
+      imgWrap.style.display = "block";
+    } else {
+      imgWrap.style.display = "none";
+    }
+
+    keuneModal.classList.add("is-open");
+    keuneModal.setAttribute("aria-hidden", "false");
+    // scroll to top
+    keuneModal.querySelector(".keune-modal-scroll").scrollTop = 0;
+  }
+
   function openKeuneModal(src, alt) {
     ensureKeuneModal();
-    const img = keuneModal.querySelector(".keune-modal-body img");
+    const title = keuneModal.querySelector(".keune-modal-title");
+    const desc = keuneModal.querySelector(".keune-modal-desc");
+    const subWrap = keuneModal.querySelector(".keune-modal-subproducts");
+    const imgWrap = keuneModal.querySelector(".keune-modal-image-wrap");
+    const img = imgWrap.querySelector("img");
+
+    title.textContent = "";
+    desc.textContent = "";
+    subWrap.innerHTML = "";
+    subWrap.style.display = "none";
     img.src = src;
     img.alt = alt;
+    imgWrap.style.display = "block";
+
     keuneModal.classList.add("is-open");
     keuneModal.setAttribute("aria-hidden", "false");
   }
@@ -893,6 +975,8 @@ if (videoButtons.length > 0) {
       card.className = "keune-card";
 
       const hasDetail = !!product.detailImage;
+      const hasSubs = product.subProducts && product.subProducts.length > 0;
+      const hasMore = hasDetail || hasSubs;
 
       card.innerHTML = `
         <img class="keune-card-img" src="${product.image}" alt="${product.name}"
@@ -901,12 +985,12 @@ if (videoButtons.length > 0) {
           <span class="keune-card-cat">${product.category}</span>
           <h4>${product.name}</h4>
           <p class="keune-card-desc">${product.description}</p>
-          ${hasDetail ? '<span class="keune-card-badge">Дэлгэрэнгүй харах →</span>' : ""}
+          ${hasMore ? '<span class="keune-card-badge">Дэлгэрэнгүй харах →</span>' : ""}
         </div>
       `;
 
-      if (hasDetail) {
-        card.addEventListener("click", () => openKeuneModal(product.detailImage, product.name + " дэлгэрэнгүй"));
+      if (hasMore) {
+        card.addEventListener("click", () => openKeuneDetail(product));
       }
 
       keuneGrid.appendChild(card);
