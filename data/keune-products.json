@@ -17,9 +17,9 @@
       "image": "Keune/KeuneProducts/colorBrillianz.png",
       "detailImage": "Keune/AboutProducts/colorBrillianzMore.jpeg",
       "subProducts": [
-        { "name": "Color Brillianz Shampoo", "nameMn": "Будагтай үсний шампунь", "volume": "300 ml", "price": 26000 },
-        { "name": "Color Brillianz Conditioner", "nameMn": "Будагтай үсний ангижруулагч", "volume": "250 ml", "price": 27000 },
-        { "name": "Color Brillianz Mask", "nameMn": "Будагтай үсний маск", "volume": "500 ml", "price": 62000 }
+        { "name": "Color Brillianz Shampoo", "nameMn": "Будагтай үсний шампунь", "volume": "300 ml", "price": 33800 },
+        { "name": "Color Brillianz Conditioner", "nameMn": "Будагтай үсний ангижруулагч", "volume": "250 ml", "price": 35100 },
+        { "name": "Color Brillianz Mask", "nameMn": "Будагтай үсний маск", "volume": "500 ml", "price": 80600 }
       ]
     },
     {
@@ -30,9 +30,9 @@
       "image": "Keune/KeuneProducts/curlControl.png",
       "detailImage": "Keune/AboutProducts/curlControlMore.jpeg",
       "subProducts": [
-        { "name": "Confident Curl Shampoo", "nameMn": "Буржгар үсний шампунь", "volume": "300 ml", "price": 32000 },
-        { "name": "Confident Curl Conditioner", "nameMn": "Буржгар үсний ангижруулагч", "volume": "250 ml", "price": 33000 },
-        { "name": "Confident Curl Leave In Wavy", "nameMn": "Буржгар үсний крем сул", "volume": "300 ml", "price": 53000 }
+        { "name": "Confident Curl Shampoo", "nameMn": "Буржгар үсний шампунь", "volume": "300 ml", "price": 41600 },
+        { "name": "Confident Curl Conditioner", "nameMn": "Буржгар үсний ангижруулагч", "volume": "250 ml", "price": 42900 },
+        { "name": "Confident Curl Leave In Wavy", "nameMn": "Буржгар үсний крем сул", "volume": "300 ml", "price": 68900 }
       ]
     },
     {
@@ -43,8 +43,8 @@
       "image": "Keune/KeuneProducts/dermaActivate.png",
       "detailImage": "Keune/AboutProducts/dermaActivateMore.jpeg",
       "subProducts": [
-        { "name": "Care Derma Activate Shampoo", "nameMn": "Үс уналтын эсрэг шампунь", "volume": "300 ml", "price": 22000 },
-        { "name": "Care Derma Activate Lotion", "nameMn": "Үс уналтын эсрэг лосион", "volume": "75 ml", "price": 33000 }
+        { "name": "Care Derma Activate Shampoo", "nameMn": "Үс уналтын эсрэг шампунь", "volume": "300 ml", "price": 28600 },
+        { "name": "Care Derma Activate Lotion", "nameMn": "Үс уналтын эсрэг лосион", "volume": "75 ml", "price": 42900 }
       ]
     },
     {
@@ -55,7 +55,7 @@
       "image": "Keune/KeuneProducts/dermaExfoliate.png",
       "detailImage": "Keune/AboutProducts/dermaExfoliateMore.png",
       "subProducts": [
-        { "name": "Care Derma Exfoliate Shampoo", "nameMn": "Хагны эсрэг шампунь", "volume": "300 ml", "price": 22000 }
+        { "name": "Care Derma Exfoliate Shampoo", "nameMn": "Хагны эсрэг шампунь", "volume": "300 ml", "price": 28600 }
       ]
     },
     {
@@ -66,7 +66,7 @@
       "image": "Keune/KeuneProducts/dermaRegulate.png",
       "detailImage": "Keune/AboutProducts/dermaRegulateMore.png",
       "subProducts": [
-        { "name": "Care Derma Regulate Shampoo", "nameMn": "Тослог үсний шампунь", "volume": "300 ml", "price": 22000 }
+        { "name": "Care Derma Regulate Shampoo", "nameMn": "Тослог үсний шампунь", "volume": "300 ml", "price": 28600 }
       ]
     },
     {
@@ -77,14 +77,14 @@
       "image": "Keune/KeuneProducts/keratinSmooth.png",
       "detailImage": "Keune/AboutProducts/keratinSmoothMore.jpeg",
       "subProducts": [
-        { "name": "Care Keratin Smooth Shampoo", "nameMn": "Кератинтай шампунь", "volume": "300 ml", "price": 26000 },
-        { "name": "Care Keratin Smooth Shampoo", "nameMn": "Кератинтай шампунь", "volume": "1000 ml", "price": 57000 },
-        { "name": "Care Keratin Smooth Conditioner", "nameMn": "Кератинтай ангижруулагч", "volume": "250 ml", "price": 27000 },
-        { "name": "Care Keratin Smooth Conditioner", "nameMn": "Кератинтай ангижруулагч", "volume": "1000 ml", "price": 57000 },
-        { "name": "Care Keratin Smooth Mask", "nameMn": "Кератинтай маск", "volume": "200 ml", "price": 45000 },
-        { "name": "Care Keratin Smooth Mask", "nameMn": "Кератинтай маск", "volume": "500 ml", "price": 65000 },
-        { "name": "Care Keratin Smooth Serum", "nameMn": "Кератинтай серюм", "volume": "25 ml", "price": 43000 },
-        { "name": "Care Keratin Smooth 2 Phase Spray", "nameMn": "Кератинтай 2 шатлалтай ангижруулагч", "volume": "200 ml", "price": 27000 }
+        { "name": "Care Keratin Smooth Shampoo", "nameMn": "Кератинтай шампунь", "volume": "300 ml", "price": 33800 },
+        { "name": "Care Keratin Smooth Shampoo", "nameMn": "Кератинтай шампунь", "volume": "1000 ml", "price": 74100 },
+        { "name": "Care Keratin Smooth Conditioner", "nameMn": "Кератинтай ангижруулагч", "volume": "250 ml", "price": 35100 },
+        { "name": "Care Keratin Smooth Conditioner", "nameMn": "Кератинтай ангижруулагч", "volume": "1000 ml", "price": 74100 },
+        { "name": "Care Keratin Smooth Mask", "nameMn": "Кератинтай маск", "volume": "200 ml", "price": 58500 },
+        { "name": "Care Keratin Smooth Mask", "nameMn": "Кератинтай маск", "volume": "500 ml", "price": 84500 },
+        { "name": "Care Keratin Smooth Serum", "nameMn": "Кератинтай серюм", "volume": "25 ml", "price": 55900 },
+        { "name": "Care Keratin Smooth 2 Phase Spray", "nameMn": "Кератинтай 2 шатлалтай ангижруулагч", "volume": "200 ml", "price": 35100 }
       ]
     },
     {
@@ -95,9 +95,9 @@
       "image": "Keune/KeuneProducts/miracleElixir.png",
       "detailImage": null,
       "subProducts": [
-        { "name": "Radiant Gloss Shampoo", "nameMn": "Үсийг торгомсог болгож, гялалзуулах шампунь", "volume": "300 ml", "price": 27000 },
-        { "name": "Radiant Gloss Mask", "nameMn": "Үсийг торгомсог болгож, гялалзуулах маск", "volume": "500 ml", "price": 78000 },
-        { "name": "Radiant Gloss Hair Gloss", "nameMn": "Үсийг торгомсог болгож, гялалзуулах шампунь", "volume": "200 ml", "price": 29000 }
+        { "name": "Radiant Gloss Shampoo", "nameMn": "Үсийг торгомсог болгож, гялалзуулах шампунь", "volume": "300 ml", "price": 35100 },
+        { "name": "Radiant Gloss Mask", "nameMn": "Үсийг торгомсог болгож, гялалзуулах маск", "volume": "500 ml", "price": 101400 },
+        { "name": "Radiant Gloss Hair Gloss", "nameMn": "Үсийг торгомсог болгож, гялалзуулах шампунь", "volume": "200 ml", "price": 37700 }
       ]
     },
     {
@@ -108,11 +108,11 @@
       "image": "Keune/KeuneProducts/satinOil.png",
       "detailImage": "Keune/AboutProducts/satinOilMore.jpeg",
       "subProducts": [
-        { "name": "Care Satin Oil Shampoo", "nameMn": "Сатин ойл шампунь", "volume": "300 ml", "price": 25000 },
-        { "name": "Care Satin Oil Conditioner", "nameMn": "Сатин ойл ангижруулагч", "volume": "250 ml", "price": 26000 },
-        { "name": "Care Satin Oil Treatment", "nameMn": "Сатин ойл тэжээлийн тос", "volume": "95 ml", "price": 54000 },
-        { "name": "Care Satin Oil Mask", "nameMn": "Сатин ойл маск", "volume": "200 ml", "price": 45000 },
-        { "name": "Care Satin Oil Mask", "nameMn": "Сатин ойл маск", "volume": "500 ml", "price": 65000 }
+        { "name": "Care Satin Oil Shampoo", "nameMn": "Сатин ойл шампунь", "volume": "300 ml", "price": 32500 },
+        { "name": "Care Satin Oil Conditioner", "nameMn": "Сатин ойл ангижруулагч", "volume": "250 ml", "price": 33800 },
+        { "name": "Care Satin Oil Treatment", "nameMn": "Сатин ойл тэжээлийн тос", "volume": "95 ml", "price": 70200 },
+        { "name": "Care Satin Oil Mask", "nameMn": "Сатин ойл маск", "volume": "200 ml", "price": 58500 },
+        { "name": "Care Satin Oil Mask", "nameMn": "Сатин ойл маск", "volume": "500 ml", "price": 84500 }
       ]
     },
     {
@@ -132,12 +132,12 @@
       "image": "Keune/KeuneProducts/tintaColorCare.png",
       "detailImage": null,
       "subProducts": [
-        { "name": "Tinta After Color Shampoo", "nameMn": "Будагны дараах шампунь", "volume": "1000 ml", "price": 38000 },
-        { "name": "Tinta After Color Balsam", "nameMn": "Будагны дараах ангижруулагч", "volume": "1000 ml", "price": 39000 },
-        { "name": "Tinta Developer 12%", "nameMn": "Тинта будгийн исэлдүүлэгч 12%", "volume": "60 мл", "price": 3000 },
-        { "name": "Tinta Developer 9%", "nameMn": "Тинта будгийн исэлдүүлэгч 9%", "volume": "60 мл", "price": 3000 },
-        { "name": "Tinta Developer 6%", "nameMn": "Тинта будгийн исэлдүүлэгч 6%", "volume": "60 мл", "price": 3000 },
-        { "name": "Tinta Developer 3%", "nameMn": "Тинта будгийн исэлдүүлэгч 3%", "volume": "60 мл", "price": 3000 }
+        { "name": "Tinta After Color Shampoo", "nameMn": "Будагны дараах шампунь", "volume": "1000 ml", "price": 49400 },
+        { "name": "Tinta After Color Balsam", "nameMn": "Будагны дараах ангижруулагч", "volume": "1000 ml", "price": 50700 },
+        { "name": "Tinta Developer 12%", "nameMn": "Тинта будгийн исэлдүүлэгч 12%", "volume": "60 мл", "price": 3900 },
+        { "name": "Tinta Developer 9%", "nameMn": "Тинта будгийн исэлдүүлэгч 9%", "volume": "60 мл", "price": 3900 },
+        { "name": "Tinta Developer 6%", "nameMn": "Тинта будгийн исэлдүүлэгч 6%", "volume": "60 мл", "price": 3900 },
+        { "name": "Tinta Developer 3%", "nameMn": "Тинта будгийн исэлдүүлэгч 3%", "volume": "60 мл", "price": 3900 }
       ]
     },
     {
@@ -148,11 +148,11 @@
       "image": "Keune/KeuneProducts/vitalNutrition.png",
       "detailImage": "Keune/AboutProducts/vitalNutritionMore.jpeg",
       "subProducts": [
-        { "name": "Vital Nutrition Shampoo", "nameMn": "Тэжээлийн шампунь", "volume": "300 ml", "price": 26000 },
-        { "name": "Vital Nutrition Conditioner", "nameMn": "Тэжээлийн ангижруулагч", "volume": "250 ml", "price": 27000 },
-        { "name": "Vital Nutrition Shampoo", "nameMn": "Тэжээлийн шампунь", "volume": "1000 ml", "price": 53000 },
-        { "name": "Vital Nutrition Conditioner", "nameMn": "Тэжээлийн ангижруулагч", "volume": "1000 ml", "price": 54000 },
-        { "name": "Vital Nutrition Mask", "nameMn": "Тэжээлийн маск", "volume": "500 ml", "price": 62000 }
+        { "name": "Vital Nutrition Shampoo", "nameMn": "Тэжээлийн шампунь", "volume": "300 ml", "price": 33800 },
+        { "name": "Vital Nutrition Conditioner", "nameMn": "Тэжээлийн ангижруулагч", "volume": "250 ml", "price": 35100 },
+        { "name": "Vital Nutrition Shampoo", "nameMn": "Тэжээлийн шампунь", "volume": "1000 ml", "price": 68900 },
+        { "name": "Vital Nutrition Conditioner", "nameMn": "Тэжээлийн ангижруулагч", "volume": "1000 ml", "price": 70200 },
+        { "name": "Vital Nutrition Mask", "nameMn": "Тэжээлийн маск", "volume": "500 ml", "price": 80600 }
       ]
     }
   ]
