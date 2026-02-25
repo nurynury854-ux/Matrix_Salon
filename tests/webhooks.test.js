@@ -106,7 +106,7 @@ const validPayload = {
   customerName: 'Test Customer',
   customerEmail: 'test@example.com',
   customerPhone: '+97699112233',
-  stylistId: 'stylist_anand',
+  stylistId: 'Ананд',
   appointmentStartTime: '2026-03-01T10:00:00+08:00',
   appointmentEndTime: '2026-03-01T11:00:00+08:00',
   serviceName: 'Haircut',

@@ -9,14 +9,14 @@ const router = express.Router();
 
 // Map stylist identifiers to their Google Calendar IDs
 const STYLIST_CALENDAR_MAP = {
-  stylist_oyunsuren: 'MatrixOyunaa@gmail.com',
-  stylist_badamtsetseg: 'Matrixbadmaa@gmail.com',
-  stylist_batzaya: 'Matrixzaya@gmail.com',
-  stylist_uyanga: 'MatrixUyanga@gmail.com',
-  stylist_altangerel: 'MatrixAagii@gmail.com',
-  stylist_tergel: 'matrixtergel@gmail.com',
-  stylist_anand: 'Matrixanand4@gmail.com',
-  stylist_mukhlai: 'MatrixMukhlai@gmail.com',
+  'Алтангэрэл': 'c_7bebeb206eef286e73bba9660b9fddf9b5e48b029b380ddc9073c3817a4b936b@group.calendar.google.com',
+  'Ананд': 'c_2af068656b60e27cd9063a78b04dffbe24f1aab4543e50c2875f132dc4b12e17@group.calendar.google.com',
+  'Бадамцэцэг': 'c_7d47cf135b4ef24b9b4e920f8e981096087b236eb4f7d92a7ad8ce7a1d407529@group.calendar.google.com',
+  'Батзаяа': 'c_2979833247c0886af6789e6fbf205b66477105ceac615a07597ba4f6af975f63@group.calendar.google.com',
+  'Мухлай': 'c_6efae8dadb0660afc266a939e8bfbd85af95bfc5ed498055ccd11175d181bbaf@group.calendar.google.com',
+  'Оюунсүрэн': 'c_46dc5625ec21ce8c17b61ed2f1c28b4328279cec168b982c49f218cd4452a4b3@group.calendar.google.com',
+  'Тэргэл': 'c_1d339159e8bc7a5059cc20d52c7b2b1cda07442336f2c2a5b7880c00d6b442f9@group.calendar.google.com',
+  'Уянга': 'c_27de9527ce91e22bc5255af2dd51bc1db5c700d167d5aaad77062990bfe4875f@group.calendar.google.com',
 };
 
 const SCOPES = ['https://www.googleapis.com/auth/calendar'];
