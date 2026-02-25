@@ -1,0 +1,14 @@
+{
+  "name": "matrix-salon-backend",
+  "version": "1.0.0",
+  "description": "Matrix Salon backend server with payment webhook and Google Calendar integration",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node --test tests/webhooks.test.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "googleapis": "^140.0.1"
+  }
+}
