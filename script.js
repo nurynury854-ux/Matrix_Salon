@@ -1015,3 +1015,72 @@ if (videoButtons.length > 0) {
 
   loadKeuneProducts();
 })();
+
+// ---------------------------------------------------------------------------
+// QPay Payment Integration
+// ---------------------------------------------------------------------------
+
+/**
+ * Fetch a QPay QR code + mobile deep-links for the given booking and render
+ * them inside #qpay-panel.
+ *
+ * @param {object} params
+ * @param {string} params.merchantId  - Dynamic merchant ID for this order
+ * @param {string|number} params.amount      - Amount in MNT
+ * @param {string} params.description - Human-readable description shown in QPay
+ */
+async function initiateQPayPayment({ merchantId, amount, description }) {
+  const panel     = document.getElementById("qpay-panel");
+  const qrImg     = document.getElementById("qpay-qr-img");
+  const bankBtns  = document.getElementById("qpay-bank-buttons");
+  const errorEl   = document.getElementById("qpay-error");
+
+  // Reset previous state
+  errorEl.style.display = "none";
+  errorEl.textContent   = "";
+  bankBtns.innerHTML    = "";
+  qrImg.src             = "";
+  panel.style.display   = "block";
+  panel.scrollIntoView({ behavior: "smooth", block: "start" });
+
+  try {
+    const response = await fetch("/api/qpay/create-payment", {
+      method:  "POST",
+      headers: { "Content-Type": "application/json" },
+      body:    JSON.stringify({ merchantId, amount, description }),
+    });
+
+    if (!response.ok) {
+      const errData = await response.json().catch(() => ({}));
+      throw new Error(errData.error || `HTTP ${response.status}`);
+    }
+
+    const data = await response.json();
+
+    // Display the Base64 QR code image
+    if (data.qr_image) {
+      qrImg.src = data.qr_image.startsWith("data:")
+        ? data.qr_image
+        : `data:image/png;base64,${data.qr_image}`;
+      qrImg.alt = "QPay QR код";
+    }
+
+    // Render a clickable button for each bank deep-link
+    if (Array.isArray(data.urls) && data.urls.length > 0) {
+      data.urls.forEach(function (entry) {
+        const a = document.createElement("a");
+        a.href      = entry.link;
+        a.className = "qpay-bank-btn";
+        a.target    = "_blank";
+        a.rel       = "noopener noreferrer";
+        a.textContent = entry.name ? `${entry.name}-р төлөх` : "Банкны аппаар төлөх";
+        a.setAttribute("aria-label", entry.name ? `Pay with ${entry.name}` : "Pay with bank app");
+        bankBtns.appendChild(a);
+      });
+    }
+  } catch (err) {
+    console.error("QPay payment error:", err);
+    errorEl.textContent  = `Төлбөр үүсгэхэд алдаа гарлаа: ${err.message}`;
+    errorEl.style.display = "block";
+  }
+}
