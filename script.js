@@ -31,6 +31,18 @@ const timeOptions = [
   "19:00",
 ];
 
+// Client-side copy of stylist prices/levels (mirrors config/stylists.js).
+// Note: keep this in sync with the server-side config when stylist pricing changes.
+const STYLIST_CONFIG_CLIENT = {
+  'Ананд':      { price: 20000, level: 'Master' },
+  'Бадамцэцэг': { price: 10000, level: '1st Degree' },
+  'Батзаяа':    { price: 10000, level: '1st Degree' },
+  'Мухлай':     { price: 10000, level: '1st Degree' },
+  'Оюунсүрэн':  { price: 20000, level: 'Master' },
+  'Тэргэл':     { price: 10000, level: '1st Degree' },
+  'Уянга':      { price: 20000, level: 'Master' },
+};
+
 const SERVICE_IMAGE_MAP = {
   "будаг": ["files/Budag.jpeg"],
   "оффис колор": ["files/OfficeColor.png"],
@@ -612,6 +624,7 @@ function renderDayStrip(startDate = new Date()) {
 }
 
 function renderTimeSlots() {
+  if (!timeSlots) return;
   timeSlots.innerHTML = "";
   timeOptions.forEach((time) => {
     const slot = document.createElement("button");
@@ -623,18 +636,119 @@ function renderTimeSlots() {
   });
 }
 
+/**
+ * Fetch available 1-hour slots from the backend calendar API and render them.
+ * Triggered whenever the user changes the date or stylist.
+ */
+async function fetchAvailableSlots(date, stylistId) {
+  const container = document.getElementById("available-time-slots");
+  if (!container) return;
+  container.innerHTML = '<p class="slots-hint">Ачааллаж байна...</p>';
+  const summaryEl = document.getElementById("booking-summary");
+  if (summaryEl) summaryEl.style.display = "none";
+
+  try {
+    const res = await fetch(
+      `/api/calendar/available-slots?date=${encodeURIComponent(date)}&stylistId=${encodeURIComponent(stylistId)}`
+    );
+    if (!res.ok) {
+      const err = await res.json().catch(() => ({}));
+      throw new Error(err.error || `HTTP ${res.status}`);
+    }
+    const data = await res.json();
+    renderAvailableSlots(data.availableSlots, stylistId, date);
+  } catch (err) {
+    console.error("Failed to fetch available slots:", err);
+    container.innerHTML = '<p class="slots-hint">Цаг ачаалахад алдаа гарлаа.</p>';
+  }
+}
+
+/**
+ * Render the array of available time strings as clickable slot buttons.
+ */
+function renderAvailableSlots(slots, stylistId, date) {
+  const container = document.getElementById("available-time-slots");
+  if (!container) return;
+  container.innerHTML = "";
+
+  if (!slots || slots.length === 0) {
+    container.innerHTML = '<p class="slots-hint">Тухайн өдөрт чөлөөт цаг байхгүй байна.</p>';
+    return;
+  }
+
+  slots.forEach((time) => {
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "time-slot";
+    btn.textContent = time;
+    btn.addEventListener("click", () => {
+      Array.from(container.querySelectorAll(".time-slot")).forEach((b) => b.classList.remove("active"));
+      btn.classList.add("active");
+      if (timeInput) timeInput.value = time;
+      showBookingSummary(stylistId, date, time);
+    });
+    container.appendChild(btn);
+  });
+}
+
+/**
+ * Display a booking summary panel with a "Confirm & Pay" button that
+ * triggers QPay when clicked.
+ */
+function showBookingSummary(stylistId, date, time) {
+  const summaryEl = document.getElementById("booking-summary");
+  if (!summaryEl) return;
+  const stylist = STYLIST_CONFIG_CLIENT[stylistId] || { price: 0, level: "" };
+  const priceText = `${formatter.format(stylist.price)} ₮`;
+  const levelText = stylist.level ? ` (${stylist.level})` : "";
+
+  summaryEl.innerHTML = `
+    <h4 class="summary-title">Захиалгын мэдээлэл</h4>
+    <div class="summary-item"><span>Үсчин:</span> <strong>${stylistId}${levelText}</strong></div>
+    <div class="summary-item"><span>Өдөр:</span> <strong>${date}</strong></div>
+    <div class="summary-item"><span>Цаг:</span> <strong>${time}</strong></div>
+    <div class="summary-item"><span>Үнэ:</span> <strong>${priceText}</strong></div>
+    <button type="button" class="primary-btn confirm-pay-btn">Баталгаажуулж төлөх</button>
+  `;
+  summaryEl.style.display = "block";
+
+  summaryEl.querySelector(".confirm-pay-btn").onclick = () => {
+    initiateQPayPayment({
+      merchantId: "MATRIX_SALON",
+      amount: stylist.price,
+      description: `Matrix Eco Salon – ${stylistId} – ${date} ${time}`,
+    });
+  };
+
+  try {
+    summaryEl.scrollIntoView({ behavior: "smooth", block: "nearest" });
+  } catch (_) {
+    summaryEl.scrollIntoView();
+  }
+}
+
 function selectDay(dateString) {
   dateInput.value = dateString;
   Array.from(dayStrip.children).forEach((btn) => {
     btn.classList.toggle("active", btn.dataset.date === dateString);
   });
   timeInput.value = "";
-  Array.from(timeSlots.children).forEach((slot) => slot.classList.remove("active"));
+  Array.from(timeSlots ? timeSlots.children : []).forEach((slot) => slot.classList.remove("active"));
+
+  const stylistSel = document.getElementById("stylist-select");
+  if (stylistSel && stylistSel.value) {
+    fetchAvailableSlots(dateString, stylistSel.value);
+  } else {
+    const avail = document.getElementById("available-time-slots");
+    if (avail) avail.innerHTML = '<p class="slots-hint">Үсчинг сонгоно уу.</p>';
+  }
+  const summaryEl = document.getElementById("booking-summary");
+  if (summaryEl) summaryEl.style.display = "none";
 }
 
 function selectTime(time, element) {
   timeInput.value = time;
-  Array.from(timeSlots.children).forEach((slot) => slot.classList.remove("active"));
+  Array.from(timeSlots ? timeSlots.children : []).forEach((slot) => slot.classList.remove("active"));
   element.classList.add("active");
 }
 
@@ -652,6 +766,17 @@ todayBtn?.addEventListener("click", () => {
   renderDayStrip(new Date());
 });
 
+document.getElementById("stylist-select")?.addEventListener("change", (event) => {
+  const summaryEl = document.getElementById("booking-summary");
+  if (summaryEl) summaryEl.style.display = "none";
+  if (event.target.value && dateInput && dateInput.value) {
+    fetchAvailableSlots(dateInput.value, event.target.value);
+  } else {
+    const avail = document.getElementById("available-time-slots");
+    if (avail) avail.innerHTML = '<p class="slots-hint">Үсчин болон өдрийг сонгоно уу.</p>';
+  }
+});
+
 bookingForm?.addEventListener("submit", (event) => {
   event.preventDefault();
   if (!serviceSelect.value || !dateInput.value || !timeInput.value) {
@@ -664,7 +789,10 @@ bookingForm?.addEventListener("submit", (event) => {
   bookingForm.reset();
   initDateInput();
   renderDayStrip(new Date());
-  renderTimeSlots();
+  const avail = document.getElementById("available-time-slots");
+  if (avail) avail.innerHTML = '<p class="slots-hint">Үсчин болон өдрийг сонгоно уу.</p>';
+  const summaryEl = document.getElementById("booking-summary");
+  if (summaryEl) summaryEl.style.display = "none";
 });
 
 // Only load pricing if element exists on this page
@@ -678,10 +806,11 @@ if (document.getElementById("products-grid")) {
 }
 
 // Initialize booking calendar and time slots (only on pages that contain booking UI)
-if (dayStrip && timeSlots && dateInput) {
+if (dayStrip && dateInput) {
   renderDayStrip(new Date());
-  renderTimeSlots();
   initDateInput();
+  const avail = document.getElementById("available-time-slots");
+  if (avail) avail.innerHTML = '<p class="slots-hint">Үсчин болон өдрийг сонгоно уу.</p>';
 }
 
 // Team modal functionality - only initialize if elements exist on this page

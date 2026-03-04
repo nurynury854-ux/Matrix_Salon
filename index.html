@@ -147,8 +147,22 @@
                 <h3>Цагийн хуваарь</h3>
                 <button id="today-btn" class="ghost-btn">Өнөөдөр</button>
               </div>
+              <label class="stylist-picker-label">
+                Үсчин сонгох
+                <select id="stylist-select" class="stylist-select">
+                  <option value="">Үсчин сонгох...</option>
+                  <option value="Ананд">Ананд (Master)</option>
+                  <option value="Оюунсүрэн">Оюунсүрэн (Master)</option>
+                  <option value="Уянга">Уянга (Master)</option>
+                  <option value="Бадамцэцэг">Бадамцэцэг (1st Degree)</option>
+                  <option value="Батзаяа">Батзаяа (1st Degree)</option>
+                  <option value="Мухлай">Мухлай (1st Degree)</option>
+                  <option value="Тэргэл">Тэргэл (1st Degree)</option>
+                </select>
+              </label>
               <div id="day-strip" class="day-strip"></div>
-              <div class="time-slots" id="time-slots"></div>
+              <div id="available-time-slots" class="time-slots"></div>
+              <div id="booking-summary" class="booking-summary" style="display:none;"></div>
             </div>
             <form id="booking-form" class="booking-form">
               <label>
@@ -236,6 +250,42 @@
         }
         .qpay-bank-btn:hover { opacity: 0.85; }
         .qpay-error { color: #e53e3e; margin-top: 0.5rem; }
+        .stylist-picker-label {
+          display: flex;
+          flex-direction: column;
+          gap: 0.3rem;
+          font-size: 0.9rem;
+          font-weight: 600;
+          padding: 0.75rem 0 0.5rem;
+        }
+        .stylist-select {
+          padding: 0.5rem 0.75rem;
+          border-radius: 8px;
+          border: 1px solid var(--accent, #64d39a);
+          background: var(--card-bg, #161f1a);
+          color: inherit;
+          font-size: 0.95rem;
+          cursor: pointer;
+          width: 100%;
+        }
+        .booking-summary {
+          margin-top: 1.25rem;
+          padding: 1rem 1.25rem;
+          background: var(--card-bg, #161f1a);
+          border: 1px solid var(--accent, #64d39a);
+          border-radius: 10px;
+        }
+        .summary-title { margin-bottom: 0.6rem; font-size: 1rem; }
+        .summary-item {
+          display: flex;
+          justify-content: space-between;
+          padding: 0.3rem 0;
+          font-size: 0.9rem;
+          border-bottom: 1px solid rgba(100,211,154,0.15);
+        }
+        .summary-item:last-of-type { border-bottom: none; }
+        .confirm-pay-btn { width: 100%; margin-top: 0.75rem; }
+        .slots-hint { color: var(--muted, #888); font-size: 0.875rem; padding: 0.5rem 0; }
       </style>
 
       <section id="contact" class="section alt-section">
