@@ -9,6 +9,8 @@ const router = express.Router();
 const WORK_START_HOUR = 9;
 const WORK_END_HOUR = 19;
 const SLOT_DURATION_HOURS = 1;
+// Last bookable slot starts at 18:00 and ends at 19:00 (WORK_END_HOUR)
+const LAST_SLOT_START_HOUR = WORK_END_HOUR - SLOT_DURATION_HOURS;
 
 /**
  * GET /api/calendar/available-slots?date=YYYY-MM-DD&stylistId=<id>
@@ -50,7 +52,7 @@ router.get('/available-slots', async (req, res) => {
 
     // Build all possible 1-hour slot start hours (09, 10, …, 18)
     const availableSlots = [];
-    for (let h = WORK_START_HOUR; h < WORK_END_HOUR - SLOT_DURATION_HOURS + 1; h++) {
+    for (let h = WORK_START_HOUR; h <= LAST_SLOT_START_HOUR; h++) {
       const slotStart = new Date(`${date}T${String(h).padStart(2, '0')}:00:00Z`);
       const slotEnd = new Date(slotStart.getTime() + SLOT_DURATION_HOURS * 60 * 60 * 1000);
 
